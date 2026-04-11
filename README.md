@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# sendprop
 
-## Getting Started
+The customer-facing audit funnel for [sendprop.com](https://sendprop.com).
 
-First, run the development server:
+A tiny Next.js app: landing page → Stripe Checkout → NDA + file upload → notification email to the consultant. **No database.** Stripe holds the order state, Resend delivers the upload as an email attachment.
+
+This is the *only* thing customers ever see. The dialer + scraper + email tracker live separately on a private machine and never serve any public traffic.
+
+## Routes
+
+| Path | What it does |
+|---|---|
+| `/` | Landing page with the offer + Stripe checkout form |
+| `/upload/[sessionId]` | NDA acceptance + file upload (gated on Stripe payment status) |
+| `/done/[sessionId]` | Thank-you page |
+| `/api/stripe/webhook` | Stripe webhook (logging only — no DB to update) |
+
+## Stack
+
+- Next.js 16 (App Router) + TypeScript + Tailwind v4
+- `stripe` SDK for checkout sessions + payment verification
+- `resend` for sending the order notification email with file attachments
+- No database. State lives in Stripe.
+
+## Local development
 
 ```bash
+npm install
+cp .env.example .env
+# Fill in the env vars
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production deployment (Vercel)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push this repo to GitHub
+2. Import it into Vercel (one click)
+3. Add env vars in Vercel's dashboard:
+   - `PUBLIC_BASE_URL=https://sendprop.com`
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_WEBHOOK_SECRET`
+   - `RESEND_API_KEY`
+   - `NOTIFICATION_EMAIL`
+   - `NOTIFICATION_FROM`
+4. Add `sendprop.com` as a custom domain in Vercel
+5. Vercel gives you DNS records — add them in Cloudflare DNS as **gray cloud (DNS only)**, NOT proxied
+6. Create the Stripe webhook at https://dashboard.stripe.com/webhooks pointing at `https://sendprop.com/api/stripe/webhook` (event: `checkout.session.completed`)
+7. Test with Stripe test card `4242 4242 4242 4242`
 
-## Learn More
+## How it works end-to-end
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Cold email links to `https://sendprop.com`
+2. Prospect clicks → lands on `/`
+3. Fills in name + business + email → clicks "Pay $400 and start"
+4. Server creates a Stripe Checkout session, redirects to Stripe
+5. Prospect pays on Stripe's page
+6. Stripe redirects to `/upload/{checkoutSessionId}`
+7. Page verifies payment status against Stripe directly (no DB)
+8. Prospect accepts NDA, uploads files
+9. Server reads files into memory, calls Resend to email them as attachments to the consultant
+10. Prospect sees `/done/{sessionId}` thank-you page
+11. Consultant gets an email with all files attached, replies with the report within 48 hours
