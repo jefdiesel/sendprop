@@ -17,7 +17,7 @@ export default function HomePage() {
           href="#start"
           className="text-sm font-medium text-zinc-500 transition hover:text-zinc-900"
         >
-          $400
+          Get started
         </a>
       </nav>
 
