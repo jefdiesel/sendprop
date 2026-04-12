@@ -299,9 +299,17 @@ export default function HomePage() {
           <span className="font-semibold text-zinc-900">
             sendprop<span className="text-orange-500">.</span>
           </span>
-          <a href="mailto:jef@sendprop.com" className="hover:text-zinc-900">
-            jef@sendprop.com
-          </a>
+          <div className="flex gap-6">
+            <a href="/terms" className="hover:text-zinc-900">
+              Terms
+            </a>
+            <a href="/privacy" className="hover:text-zinc-900">
+              Privacy
+            </a>
+            <a href="mailto:jef@sendprop.com" className="hover:text-zinc-900">
+              jef@sendprop.com
+            </a>
+          </div>
         </div>
       </footer>
     </div>
