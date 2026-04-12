@@ -289,7 +289,7 @@ export default function HomePage() {
                   type="submit"
                   className="group mt-8 flex w-full items-center justify-center gap-3 rounded-md bg-orange-500 px-6 py-4 text-base font-semibold text-zinc-950 shadow-sm transition hover:bg-orange-400 active:translate-y-px active:shadow-none"
                 >
-                  Continue to Stripe
+                  Get my audit
                   <span className="text-zinc-900/40">·</span>
                   <span className="font-mono tabular-nums">$400</span>
                 </button>
