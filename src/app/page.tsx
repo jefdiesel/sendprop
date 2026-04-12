@@ -29,7 +29,7 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-10 max-w-xl text-xl leading-relaxed text-zinc-600">
-          You just don&apos;t know which half yet.
+          We&apos;ll show you exactly which half. $400.
         </p>
 
         <div className="mt-10 flex items-center gap-8">
