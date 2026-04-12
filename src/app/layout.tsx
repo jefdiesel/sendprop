@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sendprop — AI Audit",
-  description: "$400 written AI audit for small businesses. 48 hours, no meeting, refund guarantee.",
+  title: "sendprop — $400, we dig through your business",
+  description: "Upload your emails, invoices, and schedules. 48 hours later: a 4-page report with three specific fixes. $400 flat.",
 };
 
 export default function RootLayout({

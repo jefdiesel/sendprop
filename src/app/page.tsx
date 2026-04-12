@@ -1,310 +1,299 @@
 import { createCheckoutSession } from "./actions";
 
 export const metadata = {
-  title: "Sendprop",
+  title: "sendprop — $400, we dig through your business",
   description:
-    "We look at your business and find the money you're leaving on the table. $400. 48 hours. No meetings.",
+    "Upload your emails, invoices, and schedules. 48 hours later: a 4-page report with three specific fixes. $400 flat. Money back if it's not worth it.",
 };
-
-const STATS = [
-  { label: "Price", value: "$400" },
-  { label: "Turnaround", value: "48h" },
-  { label: "Meetings", value: "0" },
-  { label: "Guarantee", value: "$10k+" },
-];
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#fafaf7] text-zinc-900 antialiased selection:bg-orange-200">
-      {/* nav */}
-      <nav className="border-b border-zinc-200">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <a href="/" className="text-sm font-semibold tracking-tight">
-            sendprop<span className="text-orange-500">.</span>
-          </a>
-          <a
-            href="#start"
-            className="rounded-md bg-orange-500 px-3.5 py-1.5 text-sm font-semibold text-zinc-950 transition hover:bg-orange-400"
-          >
-            $400
-          </a>
-        </div>
+      {/* nav — barely there */}
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="/" className="text-sm font-semibold tracking-tight">
+          sendprop<span className="text-orange-500">.</span>
+        </a>
+        <a
+          href="#start"
+          className="text-sm font-medium text-zinc-500 transition hover:text-zinc-900"
+        >
+          $400 &mdash; start now
+        </a>
       </nav>
 
-      {/* hero */}
-      <section className="relative overflow-hidden border-b border-zinc-200">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-        <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-16 sm:pt-32 sm:pb-24">
-          <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-zinc-900/15 bg-white/70 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-zinc-700 backdrop-blur">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-            Now booking
+      {/* hero — one idea, massive */}
+      <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-28 sm:pb-32">
+        <h1 className="max-w-[18ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
+          $400.
+          <br />
+          We dig through your
+          <br />
+          <span className="text-orange-500">actual business.</span>
+        </h1>
+
+        <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="max-w-lg space-y-6 text-lg leading-relaxed text-zinc-600">
+            <p>
+              You upload the real stuff &mdash; customer emails, vendor
+              invoices, your scheduling tool, a photo of the whiteboard
+              nobody erased. The messy day-to-day.
+            </p>
+            <p className="text-zinc-900 font-medium">
+              48 hours later, a 4-page report lands in your inbox: three
+              things that are costing you money, what to do about each one,
+              and what it costs to fix.
+            </p>
           </div>
 
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-[-0.025em] sm:text-7xl">
-            We look at your business and find the money you&apos;re{" "}
-            <span className="text-orange-600">leaving on the table.</span>
-          </h1>
-
-          <p className="mt-10 max-w-2xl text-xl leading-relaxed text-zinc-700 sm:text-2xl">
-            Not &ldquo;AI consulting.&rdquo; Not a Zoom call where some guy
-            tells you to use ChatGPT. We actually dig into how your shop
-            runs and come back with a written report that says: here&apos;s
-            where the money is, here&apos;s how to get it, here&apos;s what
-            to do first.
-          </p>
-
-          <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
+          <div className="flex flex-col justify-center gap-6 lg:items-end">
             <a
               href="#start"
-              className="group inline-flex items-center gap-3 rounded-md bg-orange-500 px-8 py-4 text-base font-semibold text-zinc-950 shadow-sm transition hover:bg-orange-400 active:translate-y-px"
+              className="group inline-flex items-center gap-3 rounded-md bg-zinc-900 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-zinc-800 active:translate-y-px"
             >
-              See what we&apos;d find
-              <span className="text-zinc-900/40">·</span>
-              <span className="font-mono tabular-nums">$400</span>
-              <span className="transition-transform group-hover:translate-x-1">→</span>
+              Let&apos;s dig
+              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
-            <span className="text-sm text-zinc-500">
-              If we don&apos;t find $10k in savings, you pay nothing.
-            </span>
-          </div>
-        </div>
-
-        {/* stat strip */}
-        <div className="relative grid grid-cols-2 border-t border-zinc-200 sm:grid-cols-4">
-          {STATS.map((s, i) => (
-            <div
-              key={s.label}
-              className={`px-6 py-7 ${
-                i < STATS.length - 1 ? "border-r border-zinc-200" : ""
-              } ${i < 2 ? "border-b border-zinc-200 sm:border-b-0" : ""}`}
-            >
-              <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
-                {s.label}
-              </div>
-              <div className="mt-2 font-mono text-3xl font-semibold tabular-nums tracking-tight">
-                {s.value}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* the pitch */}
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <div className="text-sm font-medium text-orange-600">
-              Why this exists
-            </div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              You didn&apos;t build your business to spend half of it on
-              paperwork.
-            </h2>
-          </div>
-          <div className="space-y-6 text-lg leading-relaxed text-zinc-700 lg:col-span-8">
-            <p>
-              Somewhere in your shop right now, someone&apos;s spending real
-              hours on something a machine could handle in seconds. The
-              emails, the invoices, the quoting, the scheduling, the follow-ups
-              &mdash; the stuff you&apos;re doing at 9pm that you shouldn&apos;t
-              be doing. You can feel it. You just can&apos;t see it clearly
-              enough to know what to do about it.
-            </p>
-            <p>
-              That&apos;s us. We look at the messy reality of how your business
-              actually operates &mdash; not the org chart, not the mission
-              statement, the actual emails and invoices and daily grind &mdash;
-              and come back with three things you can do about it. Each one
-              priced out. Each one with the steps. Two you can do yourself
-              this week. One we can build for you.
-            </p>
-            <p className="font-medium text-zinc-900">
-              No calls. No pitch deck. No one trying to sell you a
-              subscription. Just a document that tells you the truth.
+            <p className="text-sm text-zinc-400 lg:text-right">
+              Flat fee. No calls. Full refund if it&apos;s not worth it.
             </p>
           </div>
         </div>
       </section>
 
-      {/* how it works */}
-      <section className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-          <div className="max-w-2xl">
-            <div className="text-sm font-medium text-orange-600">
-              How it works
-            </div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              You spend ten minutes. We handle the rest.
-            </h2>
-          </div>
+      {/* the deal — horizontal scroll of what they actually get */}
+      <section className="border-y border-zinc-200 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+          <h2 className="text-sm font-medium uppercase tracking-widest text-zinc-400">
+            What you get for $400
+          </h2>
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-3">
-            <div className="group">
-              <div className="font-mono text-sm tabular-nums text-orange-500">
-                01
+          <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 sm:grid-cols-3">
+            <div className="bg-white p-8">
+              <div className="text-3xl font-semibold tracking-tight">3</div>
+              <div className="mt-1 text-sm font-medium text-zinc-900">
+                specific fixes
               </div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                Pay
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-zinc-600">
-                Stripe checkout, $400 flat. Takes about thirty seconds. You
-                get a private upload link and a mutual NDA.
+              <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+                Not theory. Not &ldquo;consider exploring AI.&rdquo; Three
+                things in your operation that are bleeding time or money,
+                ranked by impact.
               </p>
             </div>
-            <div className="group">
-              <div className="font-mono text-sm tabular-nums text-orange-500">
-                02
+            <div className="bg-white p-8">
+              <div className="text-3xl font-semibold tracking-tight">4</div>
+              <div className="mt-1 text-sm font-medium text-zinc-900">
+                page report
               </div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
+              <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+                Each fix includes what&apos;s broken, how to fix it, what it
+                costs, and the steps to do it this week. Two you can handle
+                yourself. One we can build.
+              </p>
+            </div>
+            <div className="bg-white p-8">
+              <div className="text-3xl font-semibold tracking-tight">48h</div>
+              <div className="mt-1 text-sm font-medium text-zinc-900">
+                turnaround
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+                You spend ten minutes uploading. We spend two days going
+                through everything. Report in your inbox, done.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* who this is for — real examples, not personas */}
+      <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+          <div className="lg:col-span-2">
+            <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
+              You already know
+              <br />
+              something&apos;s off.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-zinc-500">
+              You just can&apos;t see it clearly enough to know what to
+              do about it.
+            </p>
+          </div>
+
+          <div className="space-y-8 text-base leading-relaxed text-zinc-600 lg:col-span-3">
+            <div className="border-l-2 border-orange-300 pl-6">
+              Your office manager is re-typing estimates into three different
+              systems. There&apos;s a better way and it would take a weekend
+              to set up. You just don&apos;t know which way.
+            </div>
+            <div className="border-l-2 border-orange-300 pl-6">
+              Your front desk is playing phone tag for appointments that
+              should book themselves. You&apos;ve heard there are tools for
+              this. You don&apos;t have time to research which one.
+            </div>
+            <div className="border-l-2 border-orange-300 pl-6">
+              Someone&apos;s spending every Friday afternoon on invoices. It
+              could take five minutes. You need someone to look at the
+              specific mess and tell you what to buy, build, or change.
+            </div>
+            <p className="pt-2 font-medium text-zinc-900">
+              That&apos;s the report. We look at how it actually works and
+              tell you exactly what to do.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* how it works — inline, not cards */}
+      <section className="border-y border-zinc-200 bg-zinc-950 text-zinc-50">
+        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+          <h2 className="text-sm font-medium uppercase tracking-widest text-zinc-500">
+            How it works
+          </h2>
+
+          <div className="mt-12 space-y-12 text-lg">
+            <div className="grid gap-4 sm:grid-cols-[120px_1fr] sm:items-baseline">
+              <span className="text-sm font-medium text-orange-400">
+                Pay $400
+              </span>
+              <p className="text-zinc-300">
+                Stripe checkout. Thirty seconds. You get a private upload
+                link and a mutual NDA &mdash; your data is protected before
+                you share a single file.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-[120px_1fr] sm:items-baseline">
+              <span className="text-sm font-medium text-orange-400">
                 Upload
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-zinc-600">
-                Drop in a sample of the real stuff &mdash; customer emails,
-                vendor emails, a phone photo of your desk, an export from your
-                booking system. Whatever you can pull in ten minutes.
+              </span>
+              <p className="text-zinc-300">
+                Customer emails, vendor invoices, screenshots of your
+                booking system, a phone photo of the whiteboard &mdash;
+                whatever shows how your day actually runs. Ten minutes.
               </p>
             </div>
-            <div className="group">
-              <div className="font-mono text-sm tabular-nums text-orange-500">
-                03
-              </div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                Get the report
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-zinc-600">
-                48 hours later, a 4-page PDF lands in your inbox. Three things
-                to do, ranked by how much money they save you, with the exact
-                steps to make each one happen.
+            <div className="grid gap-4 sm:grid-cols-[120px_1fr] sm:items-baseline">
+              <span className="text-sm font-medium text-orange-400">
+                Read
+              </span>
+              <p className="text-zinc-300">
+                48 hours later, a 4-page PDF in your inbox. Three moves
+                you can make this month, with exact steps and costs.
+                That&apos;s the whole thing.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* guarantee */}
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <div className="text-sm font-medium text-orange-600">
-              The guarantee
-            </div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              We eat the risk. Not you.
-            </h2>
-          </div>
-          <div className="lg:col-span-8">
-            <div className="space-y-6 text-lg leading-relaxed text-zinc-700">
-              <p>
-                If the report doesn&apos;t identify at least $10,000 a year in
-                savings for your business, you reply &ldquo;refund&rdquo; and
-                we send the money back. Not credits. Not a discount on the
-                next thing. Your actual money, back on your card, within 7 days
-                of delivery. No questions, no conversation, no guilt trip.
-              </p>
-              <p>
-                Your data is protected by a mutual NDA signed before you
-                upload anything. We delete everything within 14 days of
-                delivering the report. No subscriptions, no follow-up
-                sequences, no &ldquo;just circling back.&rdquo;
-              </p>
-              <p className="font-medium text-zinc-900">
-                The report is the whole product. If it&apos;s not worth it,
-                it&apos;s free.
-              </p>
-            </div>
-          </div>
+      {/* guarantee — one strong statement */}
+      <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            If the report isn&apos;t worth it, reply &ldquo;refund&rdquo;
+            and we put the money back on your card. No questions. No
+            conversation. Within 7 days.
+          </p>
+          <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-zinc-500">
+            Your data is locked behind a mutual NDA. We delete everything
+            14 days after delivery. No subscriptions, no drip campaigns,
+            no follow-up.
+          </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="start" className="bg-zinc-950 text-zinc-50">
-        <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-            <div className="lg:col-span-5">
+      {/* CTA — the form */}
+      <section id="start" className="border-t border-zinc-200 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+            <div>
               <h2 className="text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">
-                Let&apos;s see what we find.
+                Ready?
               </h2>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-zinc-300">
-                Three fields, one checkout, then you upload the data.
-                We&apos;ll have your report back in 48 hours.
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-zinc-500">
+                Three fields. One checkout. Upload your data, and the
+                report lands in your inbox within 48 hours.
               </p>
-              <p className="mt-10 text-sm text-zinc-500">
+
+              <div className="mt-12 space-y-4 text-sm text-zinc-400">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
+                  Mutual NDA before you upload anything
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
+                  Data deleted 14 days after delivery
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
+                  Full refund, no questions, within 7 days
+                </div>
+              </div>
+
+              <p className="mt-12 text-sm text-zinc-400">
                 Questions?{" "}
                 <a
                   href="mailto:jef@sendprop.com"
-                  className="text-zinc-200 underline decoration-zinc-700 underline-offset-4 hover:decoration-zinc-300"
+                  className="text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900"
                 >
                   jef@sendprop.com
                 </a>
               </p>
             </div>
 
-            <div className="lg:col-span-7">
-              <form
-                action={createCheckoutSession}
-                className="rounded-lg border border-white/10 bg-white/[0.03] p-6 sm:p-8"
-              >
-                <div className="space-y-5">
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-zinc-300">
-                      Your name
-                    </label>
-                    <input
-                      name="customerName"
-                      required
-                      className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-zinc-300">
-                      Business
-                    </label>
-                    <input
-                      name="businessName"
-                      required
-                      className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-zinc-300">
-                      Email
-                    </label>
-                    <input
-                      name="customerEmail"
-                      type="email"
-                      required
-                      className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
-                    />
-                  </div>
+            <form
+              action={createCheckoutSession}
+              className="rounded-lg border border-zinc-200 bg-[#fafaf7] p-6 sm:p-8"
+            >
+              <div className="space-y-5">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-zinc-700">
+                    Your name
+                  </label>
+                  <input
+                    name="customerName"
+                    required
+                    className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                  />
                 </div>
-                <button
-                  type="submit"
-                  className="group mt-8 flex w-full items-center justify-center gap-3 rounded-md bg-orange-500 px-6 py-4 text-base font-semibold text-zinc-950 shadow-sm transition hover:bg-orange-400 active:translate-y-px active:shadow-none"
-                >
-                  Get my audit
-                  <span className="text-zinc-900/40">·</span>
-                  <span className="font-mono tabular-nums">$400</span>
-                </button>
-                <p className="mt-4 text-center text-sm text-zinc-500">
-                  Card, Apple Pay, Google Pay. Refund within 7 days, no
-                  questions.
-                </p>
-              </form>
-            </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-zinc-700">
+                    Business
+                  </label>
+                  <input
+                    name="businessName"
+                    required
+                    className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-zinc-700">
+                    Email
+                  </label>
+                  <input
+                    name="customerEmail"
+                    type="email"
+                    required
+                    className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <button
+                type="submit"
+                className="group mt-8 flex w-full items-center justify-center gap-3 rounded-md bg-zinc-900 px-6 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-zinc-800 active:translate-y-px active:shadow-none"
+              >
+                Pay $400 &amp; get started
+              </button>
+              <p className="mt-4 text-center text-sm text-zinc-400">
+                Card, Apple Pay, Google Pay. Takes 30 seconds.
+              </p>
+            </form>
           </div>
         </div>
       </section>
 
       <footer className="border-t border-zinc-200 bg-[#fafaf7]">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8 text-sm text-zinc-500">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 text-sm text-zinc-400">
           <span>
             <span className="font-semibold text-zinc-900">sendprop</span>
             <span className="text-orange-500">.</span>
