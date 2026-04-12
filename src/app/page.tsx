@@ -145,7 +145,7 @@ export default function HomePage() {
             <div className="grid gap-2 sm:grid-cols-[100px_1fr] sm:gap-4 sm:items-baseline">
               <span className="text-sm font-medium text-orange-400">Talk</span>
               <p className="text-zinc-300">
-                20 minutes about your operations. How your business runs. Where
+                Tell us about your operations. How your business runs. Where
                 the time goes. What you&apos;d change if you could.
               </p>
             </div>
