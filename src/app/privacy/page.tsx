@@ -26,7 +26,7 @@ export default function PrivacyPage() {
               Who we are
             </h2>
             <p className="mt-2">
-              Sendprop is operated by Jef Diesel. Contact:{" "}
+              Sendprop is operated by Mellenville Valley LLC. Contact:{" "}
               <a
                 href="mailto:jef@sendprop.com"
                 className="text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900"
