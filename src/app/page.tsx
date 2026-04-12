@@ -1,9 +1,9 @@
 import { createCheckoutSession } from "./actions";
 
 export const metadata = {
-  title: "sendprop — $400, we dig through your business",
+  title: "sendprop — show us the mess, we'll find the money",
   description:
-    "Upload your emails, invoices, and schedules. 48 hours later: a 4-page report with three specific fixes. $400 flat. Money back if it's not worth it.",
+    "Hand over your emails, invoices, and schedules. 48 hours later: a report with three specific fixes ranked by impact. $400 flat. Money back if it's not worth it.",
 };
 
 export default function HomePage() {
@@ -24,25 +24,24 @@ export default function HomePage() {
 
       {/* hero — one idea, massive */}
       <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-28 sm:pb-32">
-        <h1 className="max-w-[18ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
-          $400.
+        <h1 className="max-w-[20ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
+          Show us the mess.
           <br />
-          We dig through your
-          <br />
-          <span className="text-orange-500">actual business.</span>
+          <span className="text-orange-500">We&apos;ll find the money.</span>
         </h1>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="max-w-lg space-y-6 text-lg leading-relaxed text-zinc-600">
             <p>
-              You upload the real stuff &mdash; customer emails, vendor
-              invoices, your scheduling tool, a photo of the whiteboard
-              nobody erased. The messy day-to-day.
+              Hand over the stuff nobody wants to look at &mdash; the
+              emails piling up, the invoices done by hand, the scheduling
+              tool you hate, the quoting process held together with
+              sticky notes. We go through all of it.
             </p>
             <p className="text-zinc-900 font-medium">
-              48 hours later, a 4-page report lands in your inbox: three
-              things that are costing you money, what to do about each one,
-              and what it costs to fix.
+              48 hours later you get a short report: here&apos;s what&apos;s
+              costing you, here&apos;s how to fix it, here&apos;s what
+              each fix costs. Three moves, step by step, ranked by impact.
             </p>
           </div>
 
@@ -51,11 +50,11 @@ export default function HomePage() {
               href="#start"
               className="group inline-flex items-center gap-3 rounded-md bg-zinc-900 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-zinc-800 active:translate-y-px"
             >
-              Let&apos;s dig
+              $400 &mdash; let&apos;s go
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
             <p className="text-sm text-zinc-400 lg:text-right">
-              Flat fee. No calls. Full refund if it&apos;s not worth it.
+              No calls. No meetings. Refund if it&apos;s not worth it.
             </p>
           </div>
         </div>
