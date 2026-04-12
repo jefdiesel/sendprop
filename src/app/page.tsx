@@ -3,7 +3,7 @@ import { createCheckoutSession } from "./actions";
 export const metadata = {
   title: "sendprop — what could AI actually do for your business?",
   description:
-    "A specific, written answer based on your industry, your workflows, and your daily operations. $400 flat. Report in 48 hours.",
+    "Not a guess. Not a pitch. A real answer — built around the way your business actually runs. $400 flat. Report in 48 hours.",
 };
 
 export default function HomePage() {
@@ -29,8 +29,8 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-10 max-w-xl text-xl leading-relaxed text-zinc-600">
-          A specific, written answer — based on your industry, your workflows,
-          and the problems your team deals with every day. $400 flat.
+          Not a guess. Not a pitch. A real answer — built around the way your
+          business actually runs.
         </p>
 
         <div className="mt-10 flex items-center gap-8">
@@ -44,7 +44,7 @@ export default function HomePage() {
             </span>
           </a>
           <span className="text-sm text-zinc-400">
-            Report in 48 hours.
+            $400 flat &middot; Report in 48 hours
           </span>
         </div>
       </section>
@@ -52,53 +52,36 @@ export default function HomePage() {
       {/* the moment */}
       <section className="border-y border-zinc-200 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-          <p className="max-w-2xl text-lg leading-relaxed text-zinc-600">
-            Your business was built on years of hard work. The next chapter
-            starts with <em className="text-zinc-900">letting it grow.</em>
-          </p>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-            Every business has friction. Tasks that take too long. Customers who
-            don&apos;t hear back fast enough. Quoting that bottlenecks through
-            one person. Knowledge trapped in someone&apos;s head. Hiring for
-            work that a system could handle.
-          </p>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-            The question is <em className="text-zinc-900">where</em> — and
-            whether the specific opportunity is worth $5,000 a year or $50,000.
+          <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
+            Something shifted.
+          </h2>
+          <p className="mt-2 text-lg text-zinc-400">You can feel it.</p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-600">
+            Every industry. Every size. The businesses that figure out where AI
+            fits — specifically, in their operation, with their team — are the
+            ones that pull ahead. Not because the technology is magic. Because it
+            frees up the thing that actually matters: your time, your attention,
+            your ability to grow.
           </p>
         </div>
       </section>
 
       {/* what-if */}
       <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              Something
-              <br />
-              shifted.
-            </h2>
+        <div className="space-y-6 text-lg leading-relaxed text-zinc-600 max-w-2xl">
+          <div className="border-l-2 border-orange-300 pl-6 italic">
+            What if every quote went out in minutes instead of days?
           </div>
-
-          <div className="space-y-6 text-base leading-relaxed text-zinc-600 lg:col-span-3">
-            <div className="border-l-2 border-orange-300 pl-6">
-              What if every quote went out in minutes instead of days?
-            </div>
-            <div className="border-l-2 border-orange-300 pl-6">
-              What if the knowledge in your head was available to your whole
-              team — instantly?
-            </div>
-            <div className="border-l-2 border-orange-300 pl-6">
-              What if you could take on more work without adding headcount?
-            </div>
-            <div className="border-l-2 border-orange-300 pl-6">
-              What if next year looked completely different — because this year,
-              you let it?
-            </div>
-            <p className="pt-2 text-sm font-medium text-zinc-900">
-              The businesses that figure out where AI fits — specifically, in
-              their operation, with their team — are the ones that pull ahead.
-            </p>
+          <div className="border-l-2 border-orange-300 pl-6 italic">
+            What if the knowledge in your head was available to your whole
+            team — instantly?
+          </div>
+          <div className="border-l-2 border-orange-300 pl-6 italic">
+            What if you could take on more work without adding headcount?
+          </div>
+          <div className="border-l-2 border-orange-300 pl-6 italic">
+            What if next year looked completely different — because this year,
+            you let it?
           </div>
         </div>
       </section>
@@ -290,7 +273,7 @@ export default function HomePage() {
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
             <div>
               <h2 className="text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">
-                Let&apos;s go.
+                Book the Audit.
               </h2>
 
               <div className="mt-10 space-y-3 text-sm text-zinc-400">
@@ -304,8 +287,8 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
-                  Full refund if the recommendations aren&apos;t worth at least
-                  $10,000/year
+                  If the recommendations aren&apos;t collectively worth at least
+                  $10,000/year to your business, full refund
                 </div>
               </div>
 
