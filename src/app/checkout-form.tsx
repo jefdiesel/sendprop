@@ -12,7 +12,7 @@ function SubmitButton() {
       disabled={pending}
       className="mt-6 flex w-full items-center justify-center rounded-md bg-zinc-900 px-6 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-zinc-800 active:translate-y-px disabled:opacity-60 disabled:cursor-not-allowed disabled:active:translate-y-0"
     >
-      {pending ? "Connecting to Stripe\u2026" : "Pay $400 \u2192 get your report"}
+      {pending ? "Connecting to Stripe\u2026" : "Book my audit"}
     </button>
   );
 }
@@ -78,7 +78,7 @@ export function CheckoutForm() {
 
       <div className="mt-3 text-center space-y-0.5">
         <p className="text-sm text-zinc-400">
-          Card, Apple Pay, Google Pay via Stripe.
+          Secure payment via Stripe. Card, Apple Pay, Google Pay.
         </p>
         <p className="text-xs text-zinc-300">
           After payment you&apos;ll sign an NDA and share details about your
