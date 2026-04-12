@@ -43,7 +43,7 @@ export default function HomePage() {
               &rarr;
             </span>
           </a>
-          <span className="text-sm text-zinc-400">
+          <span className="text-sm text-zinc-500">
             $400 flat &middot; Report in 48 hours
           </span>
         </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-semibold tracking-[-0.02em] sm:text-3xl">
           What you get
         </h2>
-        <p className="mt-1 text-lg text-zinc-400 sm:text-xl">
+        <p className="mt-1 text-lg text-zinc-500 sm:text-xl">
           Not a pitch. A map.
         </p>
         <p className="mt-3 max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl">
@@ -88,7 +88,7 @@ export default function HomePage() {
 
         <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 grid-cols-1 sm:grid-cols-3">
           <div className="bg-[#fafaf7] p-6 sm:p-8">
-            <div className="text-sm font-medium text-orange-500">
+            <div className="text-sm font-medium text-orange-600">
               Opportunities
             </div>
             <p className="mt-2 text-base font-semibold sm:text-lg">
@@ -100,7 +100,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="bg-[#fafaf7] p-6 sm:p-8">
-            <div className="text-sm font-medium text-orange-500">
+            <div className="text-sm font-medium text-orange-600">
               Solutions
             </div>
             <p className="mt-2 text-base font-semibold sm:text-lg">
@@ -112,7 +112,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="bg-[#fafaf7] p-6 sm:p-8">
-            <div className="text-sm font-medium text-orange-500">Clarity</div>
+            <div className="text-sm font-medium text-orange-600">Clarity</div>
             <p className="mt-2 text-base font-semibold sm:text-lg">
               What AI won&apos;t do
             </p>
@@ -130,7 +130,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-semibold tracking-[-0.02em] sm:text-3xl">
             How it works
           </h2>
-          <p className="mt-1 text-lg text-zinc-500 sm:text-xl">
+          <p className="mt-1 text-lg text-zinc-400 sm:text-xl">
             Under an hour of your time. A roadmap in return.
           </p>
 
@@ -252,7 +252,7 @@ export default function HomePage() {
                 $400 flat. Under an hour of your time. Report in 48 hours.
               </p>
 
-              <div className="mt-6 space-y-3 text-base text-zinc-400">
+              <div className="mt-6 space-y-3 text-base text-zinc-500">
                 <div className="flex items-center gap-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
                   NDA before you share anything
@@ -267,7 +267,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <p className="mt-6 text-base text-zinc-400">
+              <p className="mt-6 text-base text-zinc-500">
                 <a
                   href="mailto:jef@sendprop.com"
                   className="text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900"
@@ -283,7 +283,7 @@ export default function HomePage() {
       </section>
 
       <footer className="border-t border-zinc-200 bg-[#fafaf7]">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-sm text-zinc-400">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-sm text-zinc-500">
           <span className="font-semibold text-zinc-900">
             sendprop<span className="text-orange-500">.</span>
           </span>
@@ -293,6 +293,9 @@ export default function HomePage() {
             </a>
             <a href="/privacy" className="hover:text-zinc-900">
               Privacy
+            </a>
+            <a href="/accessibility" className="hover:text-zinc-900">
+              Accessibility
             </a>
             <a href="mailto:jef@sendprop.com" className="hover:text-zinc-900">
               jef@sendprop.com

@@ -77,10 +77,10 @@ export function CheckoutForm() {
       <SubmitButton />
 
       <div className="mt-3 text-center space-y-0.5">
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-zinc-500">
           Secure payment via Stripe. Card, Apple Pay, Google Pay.
         </p>
-        <p className="text-xs text-zinc-300">
+        <p className="text-xs text-zinc-500">
           After payment you&apos;ll sign an NDA and share details about your
           operation.
         </p>

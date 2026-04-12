@@ -16,7 +16,7 @@ export default function PrivacyPage() {
         <h1 className="text-3xl font-semibold tracking-tight">
           Privacy Policy
         </h1>
-        <p className="mt-2 text-sm text-zinc-400">
+        <p className="mt-2 text-sm text-zinc-500">
           Last updated: April 12, 2026
         </p>
 
@@ -159,13 +159,16 @@ export default function PrivacyPage() {
       </article>
 
       <footer className="border-t border-zinc-200 bg-[#fafaf7]">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-6 text-sm text-zinc-400">
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-6 text-sm text-zinc-500">
           <span className="font-semibold text-zinc-900">
             sendprop<span className="text-orange-500">.</span>
           </span>
           <div className="flex gap-6">
             <a href="/terms" className="hover:text-zinc-900">
               Terms
+            </a>
+            <a href="/accessibility" className="hover:text-zinc-900">
+              Accessibility
             </a>
             <a href="mailto:jef@sendprop.com" className="hover:text-zinc-900">
               jef@sendprop.com
