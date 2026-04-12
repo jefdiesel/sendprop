@@ -1,10 +1,25 @@
 import { notFound } from "next/navigation";
 import { stripe } from "@/lib/stripe";
-import { acceptNdaAndUpload } from "../../actions";
+import { submitIntake } from "../../actions";
 
 export const dynamic = "force-dynamic";
 
-export default async function UploadPage({
+const PAIN_POINTS = [
+  { value: "quoting", label: "Quoting / estimating" },
+  { value: "client-onboarding", label: "Onboarding new clients" },
+  { value: "customer-management", label: "Customer management / follow-up" },
+  { value: "scheduling", label: "Scheduling / appointments" },
+  { value: "hiring", label: "Hiring / recruiting" },
+  { value: "staff-onboarding", label: "Training / onboarding new staff" },
+  { value: "invoicing", label: "Invoicing / chasing payments" },
+  { value: "social-media", label: "Social media" },
+  { value: "reviews", label: "Review sites (Google, Yelp, etc.)" },
+  { value: "repeat-questions", label: "Answering the same questions over and over" },
+  { value: "gaining-business", label: "Gaining more business / leads" },
+  { value: "data-entry", label: "Data entry / moving info between systems" },
+];
+
+export default async function IntakePage({
   params,
 }: {
   params: Promise<{ sessionId: string }>;
@@ -23,12 +38,12 @@ export default async function UploadPage({
 
   if (session.payment_status !== "paid") {
     return (
-      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      <div className="min-h-screen bg-[#fafaf7] text-zinc-900 antialiased">
         <main className="mx-auto max-w-xl px-6 py-16">
           <h1 className="text-2xl font-semibold tracking-tight">
             Confirming payment...
           </h1>
-          <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-3 text-lg text-zinc-600">
             Stripe is still processing. This usually takes a few seconds.
             <br />
             <strong>Refresh this page</strong> in 30 seconds to continue.
@@ -39,30 +54,40 @@ export default async function UploadPage({
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
-      <main className="mx-auto max-w-2xl px-6 py-16">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Upload your data</h1>
-          <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-            Payment confirmed for <strong>{businessName}</strong>. Report lands
-            in {customerEmail} within 48 hours of submission.
+    <div className="min-h-screen bg-[#fafaf7] text-zinc-900 antialiased selection:bg-orange-200">
+      <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
+        <a href="/" className="text-sm font-semibold tracking-tight">
+          sendprop<span className="text-orange-500">.</span>
+        </a>
+      </nav>
+
+      <main className="mx-auto max-w-3xl px-6 py-8 pb-20">
+        <header className="mb-10">
+          <h1 className="text-3xl font-semibold tracking-tight">
+            Tell us about {businessName}.
+          </h1>
+          <p className="mt-2 text-lg text-zinc-600">
+            Payment confirmed. Your report will land in{" "}
+            <strong>{customerEmail}</strong> within 48 hours of submitting this
+            form.
           </p>
         </header>
 
         <form
-          action={acceptNdaAndUpload.bind(null, sessionId)}
-          className="space-y-8 rounded-lg border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900"
+          action={submitIntake.bind(null, sessionId)}
+          className="space-y-10"
         >
-          <section>
-            <h2 className="mb-3 text-lg font-semibold">1. Mutual NDA</h2>
-            <div className="rounded border border-zinc-200 bg-zinc-50 p-4 text-sm leading-relaxed text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
+          {/* NDA */}
+          <section className="rounded-lg border border-zinc-200 bg-white p-6">
+            <h2 className="text-lg font-semibold">Mutual NDA</h2>
+            <div className="mt-3 rounded border border-zinc-200 bg-zinc-50 p-4 text-sm leading-relaxed text-zinc-600">
               <p className="mb-2">
                 <strong>Mutual Non-Disclosure Agreement.</strong> The consultant
                 and {businessName} (&ldquo;the parties&rdquo;) agree that any
                 information shared in connection with this AI Audit engagement
                 is confidential. Neither party will share, resell, or use the
                 other&apos;s information for any purpose outside of this
-                engagement. The consultant will delete all uploaded data within
+                engagement. The consultant will delete all submitted data within
                 14 days of report delivery. The consultant may reference the
                 engagement (anonymously) in case studies only with explicit
                 written consent.
@@ -74,56 +99,181 @@ export default async function UploadPage({
                 {businessName}.
               </p>
             </div>
-            <label className="mt-3 flex items-start gap-2 text-sm">
-              <input type="checkbox" name="nda" required className="mt-1" />
+            <label className="mt-4 flex items-start gap-3 text-base cursor-pointer">
+              <input
+                type="checkbox"
+                name="nda"
+                required
+                className="mt-1 h-4 w-4 rounded border-zinc-300 accent-orange-500"
+              />
               <span>
-                I accept the mutual NDA above on behalf of {businessName}.
+                I accept the mutual NDA on behalf of {businessName}.
               </span>
             </label>
           </section>
 
+          {/* About the business */}
+          <section className="space-y-5">
+            <h2 className="text-lg font-semibold">About your business</h2>
+
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-zinc-700">
+                Website URL
+              </label>
+              <input
+                name="websiteUrl"
+                type="url"
+                placeholder="https://"
+                className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-zinc-700">
+                What does your business do? <span className="text-zinc-500">(one sentence is fine)</span>
+              </label>
+              <input
+                name="businessDescription"
+                required
+                placeholder="We run a property management company in the Hudson Valley"
+                className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-zinc-700">
+                Team size
+              </label>
+              <select
+                name="teamSize"
+                required
+                className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+              >
+                <option value="">Select...</option>
+                <option value="solo">Just me</option>
+                <option value="2-5">2–5 people</option>
+                <option value="6-15">6–15 people</option>
+                <option value="16-50">16–50 people</option>
+                <option value="50+">50+</option>
+              </select>
+            </div>
+          </section>
+
+          {/* Pain points */}
           <section>
-            <h2 className="mb-3 text-lg font-semibold">2. Upload data</h2>
-            <p className="mb-3 text-sm text-zinc-600 dark:text-zinc-400">
-              Anything you can pull in 10 minutes is enough. Common things:
+            <h2 className="text-lg font-semibold">
+              Where does your time go?
+            </h2>
+            <p className="mt-1 text-base text-zinc-500">
+              Check everything that feels like a problem or an opportunity.
             </p>
-            <ul className="mb-3 list-disc space-y-1 pl-6 text-sm text-zinc-600 dark:text-zinc-400">
-              <li>5 recent customer emails (forwarded as .eml or screenshots)</li>
-              <li>5 recent vendor / supplier emails</li>
-              <li>A photo or scan of paperwork on your desk</li>
-              <li>SOPs / process documents (any format)</li>
-              <li>Booking/CRM/PMS export if convenient</li>
-              <li>Last 90 days of invoices (CSV from QuickBooks, etc.)</li>
-            </ul>
-            <p className="mb-2 text-xs text-zinc-500">
-              Total upload limit: 25MB. If you have more, send the rest by
-              replying to your confirmation email.
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {PAIN_POINTS.map((p) => (
+                <label
+                  key={p.value}
+                  className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50"
+                >
+                  <input
+                    type="checkbox"
+                    name="painPoints"
+                    value={p.value}
+                    className="h-4 w-4 rounded border-zinc-300 accent-orange-500"
+                  />
+                  {p.label}
+                </label>
+              ))}
+            </div>
+          </section>
+
+          {/* Open-ended */}
+          <section>
+            <label className="block text-lg font-semibold">
+              Anything else we should know?
+            </label>
+            <p className="mt-1 text-base text-zinc-500">
+              The thing that makes you say &ldquo;there has to be a better
+              way.&rdquo; Specific is helpful.
+            </p>
+            <textarea
+              name="notes"
+              rows={4}
+              className="mt-3 w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+            />
+          </section>
+
+          {/* File upload — optional */}
+          <section>
+            <h2 className="text-lg font-semibold">
+              Attach files <span className="font-normal text-zinc-500">(optional)</span>
+            </h2>
+            <p className="mt-1 text-base text-zinc-500">
+              Screenshots, SOPs, exports — anything that helps us understand
+              how your business runs. Not required.
             </p>
             <input
               type="file"
               name="files"
               multiple
-              className="block w-full rounded border border-zinc-300 px-3 py-2 text-sm file:mr-4 file:rounded file:border-0 file:bg-zinc-200 file:px-3 file:py-1 file:text-sm file:font-medium hover:file:bg-zinc-300 dark:border-zinc-700 dark:file:bg-zinc-800 dark:hover:file:bg-zinc-700"
+              className="mt-3 block w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm file:mr-4 file:rounded-md file:border-0 file:bg-zinc-100 file:px-4 file:py-2 file:text-sm file:font-medium hover:file:bg-zinc-200"
             />
+            <p className="mt-1 text-sm text-zinc-500">
+              25MB max. You can also email files later to{" "}
+              <a
+                href="mailto:jef@sendprop.com"
+                className="text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900"
+              >
+                jef@sendprop.com
+              </a>
+              .
+            </p>
           </section>
 
+          {/* Call preference */}
           <section>
-            <h2 className="mb-3 text-lg font-semibold">
-              3. Anything else? (optional)
+            <h2 className="text-lg font-semibold">
+              Want a walkthrough call?
             </h2>
-            <textarea
-              name="notes"
-              rows={4}
-              placeholder="What's the thing that makes you say 'god damn it' most often in a week? What have you tried before?"
-              className="w-full rounded border border-zinc-300 px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-800"
-            />
+            <p className="mt-1 text-base text-zinc-500">
+              A 30-minute call to go through the report together. Completely
+              optional.
+            </p>
+            <div className="mt-3 space-y-2">
+              <label className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50">
+                <input
+                  type="radio"
+                  name="callPreference"
+                  value="yes"
+                  required
+                  className="h-4 w-4 border-zinc-300 accent-orange-500"
+                />
+                Yes, schedule a call after the report is ready
+              </label>
+              <label className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50">
+                <input
+                  type="radio"
+                  name="callPreference"
+                  value="maybe"
+                  className="h-4 w-4 border-zinc-300 accent-orange-500"
+                />
+                Maybe — let me see the report first
+              </label>
+              <label className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50">
+                <input
+                  type="radio"
+                  name="callPreference"
+                  value="no"
+                  className="h-4 w-4 border-zinc-300 accent-orange-500"
+                />
+                No thanks, just send the report
+              </label>
+            </div>
           </section>
 
           <button
             type="submit"
-            className="w-full rounded bg-emerald-500 px-6 py-3 text-base font-semibold text-zinc-900 transition hover:bg-emerald-400"
+            className="w-full rounded-md bg-zinc-900 px-6 py-4 text-base font-semibold text-white transition hover:bg-zinc-800 active:translate-y-px"
           >
-            Submit and start the audit →
+            Submit and start my audit
           </button>
         </form>
       </main>

@@ -69,12 +69,12 @@ export async function createCheckoutSession(
   redirect(session.url);
 }
 
-export async function acceptNdaAndUpload(
+export async function submitIntake(
   sessionId: string,
   formData: FormData,
 ) {
   const ndaAccepted = formData.get("nda") === "on";
-  if (!ndaAccepted) throw new Error("you must accept the NDA to upload");
+  if (!ndaAccepted) throw new Error("you must accept the NDA to continue");
 
   // Pull the order state from Stripe (no DB).
   const session = await stripe().checkout.sessions.retrieve(sessionId);
@@ -87,9 +87,15 @@ export async function acceptNdaAndUpload(
   const businessName = (session.metadata?.businessName ?? "").trim();
   const amountCents = session.amount_total ?? AUDIT_PRICE_CENTS;
 
-  // Read uploaded files into memory. Cap at 25MB total to stay safely under
-  // Resend's 40MB attachment limit (with overhead) — anything more, the
-  // consultant chases the customer for the rest via reply email.
+  // Intake fields
+  const websiteUrl = String(formData.get("websiteUrl") ?? "").trim();
+  const businessDescription = String(formData.get("businessDescription") ?? "").trim();
+  const teamSize = String(formData.get("teamSize") ?? "").trim();
+  const painPoints = formData.getAll("painPoints").map(String);
+  const callPreference = String(formData.get("callPreference") ?? "").trim();
+  const notes = String(formData.get("notes") ?? "").trim();
+
+  // Optional file uploads — cap at 25MB for Resend attachment limit.
   const rawFiles = formData.getAll("files");
   const files: Array<{ name: string; size: number; type: string; content: Buffer }> = [];
   let totalSize = 0;
@@ -107,7 +113,17 @@ export async function acceptNdaAndUpload(
     totalSize += f.size;
   }
 
-  const notes = String(formData.get("notes") ?? "").trim();
+  // Build a structured notes block for the notification email
+  const intakeSummary = [
+    websiteUrl && `Website: ${websiteUrl}`,
+    businessDescription && `Business: ${businessDescription}`,
+    teamSize && `Team size: ${teamSize}`,
+    painPoints.length > 0 && `Pain points: ${painPoints.join(", ")}`,
+    callPreference && `Call preference: ${callPreference}`,
+    notes && `\nAdditional notes:\n${notes}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   await sendAuditOrderNotification({
     customerName,
@@ -115,7 +131,7 @@ export async function acceptNdaAndUpload(
     customerEmail,
     amountCents,
     stripeSessionId: sessionId,
-    notes,
+    notes: intakeSummary,
     files,
   });
 
