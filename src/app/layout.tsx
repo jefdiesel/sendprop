@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "sendprop — show us the mess, we'll find the money",
-  description: "Hand over your emails, invoices, and schedules. 48 hours later: a report with three specific fixes ranked by impact. $400 flat.",
+  title: "sendprop — your business, but faster",
+  description: "We study how your business runs and show you three specific upgrades ranked by impact. 48 hours. $400 flat.",
 };
 
 export default function RootLayout({

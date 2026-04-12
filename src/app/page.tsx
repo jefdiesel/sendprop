@@ -1,9 +1,9 @@
 import { createCheckoutSession } from "./actions";
 
 export const metadata = {
-  title: "sendprop — show us the mess, we'll find the money",
+  title: "sendprop — your business, but faster",
   description:
-    "Hand over your emails, invoices, and schedules. 48 hours later: a report with three specific fixes ranked by impact. $400 flat. Money back if it's not worth it.",
+    "We study how your business runs and show you three specific upgrades ranked by impact. 48 hours. $400 flat. Money back if it's not worth it.",
 };
 
 export default function HomePage() {
@@ -24,24 +24,23 @@ export default function HomePage() {
 
       {/* hero — one idea, massive */}
       <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-28 sm:pb-32">
-        <h1 className="max-w-[20ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
-          Show us the mess.
-          <br />
-          <span className="text-orange-500">We&apos;ll find the money.</span>
+        <h1 className="max-w-[22ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
+          Your business,{" "}
+          <span className="text-orange-500">but faster.</span>
         </h1>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="max-w-lg space-y-6 text-lg leading-relaxed text-zinc-600">
             <p>
-              Hand over the stuff nobody wants to look at &mdash; the
-              emails piling up, the invoices done by hand, the scheduling
-              tool you hate, the quoting process held together with
-              sticky notes. We go through all of it.
+              You built something that works. We look at how it runs
+              today and show you the version where the quoting takes
+              minutes instead of hours, the scheduling runs itself,
+              and the follow-ups never slip through the cracks.
             </p>
             <p className="text-zinc-900 font-medium">
-              48 hours later you get a short report: here&apos;s what&apos;s
-              costing you, here&apos;s how to fix it, here&apos;s what
-              each fix costs. Three moves, step by step, ranked by impact.
+              48 hours. Three specific upgrades, ranked by impact, with
+              exact steps and costs. A short report that shows you
+              what&apos;s possible.
             </p>
           </div>
 
@@ -50,7 +49,7 @@ export default function HomePage() {
               href="#start"
               className="group inline-flex items-center gap-3 rounded-md bg-zinc-900 px-8 py-4 text-base font-semibold text-white shadow-sm transition hover:bg-zinc-800 active:translate-y-px"
             >
-              $400 &mdash; let&apos;s go
+              $400 &mdash; show me what&apos;s possible
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
             <p className="text-sm text-zinc-400 lg:text-right">
@@ -75,7 +74,7 @@ export default function HomePage() {
               </div>
               <p className="mt-4 text-sm leading-relaxed text-zinc-500">
                 Not theory. Not &ldquo;consider exploring AI.&rdquo; Three
-                things in your operation that are bleeding time or money,
+                concrete upgrades to how your operation runs,
                 ranked by impact.
               </p>
             </div>
@@ -85,9 +84,9 @@ export default function HomePage() {
                 page report
               </div>
               <p className="mt-4 text-sm leading-relaxed text-zinc-500">
-                Each fix includes what&apos;s broken, how to fix it, what it
-                costs, and the steps to do it this week. Two you can handle
-                yourself. One we can build.
+                Each upgrade includes what changes, how to do it, what it
+                costs, and the steps to get there this week. Two you can
+                handle yourself. One we can build for you.
               </p>
             </div>
             <div className="bg-white p-8">
@@ -109,35 +108,34 @@ export default function HomePage() {
         <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
           <div className="lg:col-span-2">
             <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              You already know
+              Picture your
               <br />
-              something&apos;s off.
+              business in 6 months.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-zinc-500">
-              You just can&apos;t see it clearly enough to know what to
-              do about it.
+              The tools exist to get there. You just need someone to
+              tell you which ones and in what order.
             </p>
           </div>
 
           <div className="space-y-8 text-base leading-relaxed text-zinc-600 lg:col-span-3">
             <div className="border-l-2 border-orange-300 pl-6">
-              Your office manager is re-typing estimates into three different
-              systems. There&apos;s a better way and it would take a weekend
-              to set up. You just don&apos;t know which way.
+              Estimates that used to take your office manager an hour
+              now take five minutes &mdash; one system, auto-populated,
+              sent before the customer&apos;s even off the phone.
             </div>
             <div className="border-l-2 border-orange-300 pl-6">
-              Your front desk is playing phone tag for appointments that
-              should book themselves. You&apos;ve heard there are tools for
-              this. You don&apos;t have time to research which one.
+              Appointments book themselves. No phone tag, no back-and-forth
+              emails. Your front desk handles the work that actually
+              needs a human.
             </div>
             <div className="border-l-2 border-orange-300 pl-6">
-              Someone&apos;s spending every Friday afternoon on invoices. It
-              could take five minutes. You need someone to look at the
-              specific mess and tell you what to buy, build, or change.
+              Friday afternoon invoicing? Gone. It runs in the background
+              now. Someone on your team just got five hours a week back.
             </div>
             <p className="pt-2 font-medium text-zinc-900">
-              That&apos;s the report. We look at how it actually works and
-              tell you exactly what to do.
+              That&apos;s what the report maps out &mdash; the specific
+              path from where you are to where you could be.
             </p>
           </div>
         </div>
@@ -163,12 +161,12 @@ export default function HomePage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-[120px_1fr] sm:items-baseline">
               <span className="text-sm font-medium text-orange-400">
-                Upload
+                Share
               </span>
               <p className="text-zinc-300">
-                Customer emails, vendor invoices, screenshots of your
-                booking system, a phone photo of the whiteboard &mdash;
-                whatever shows how your day actually runs. Ten minutes.
+                Customer emails, invoices, screenshots of your booking
+                system, your quoting workflow &mdash; whatever shows how
+                your operation runs today. Ten minutes.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-[120px_1fr] sm:items-baseline">
@@ -189,9 +187,9 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            If the report isn&apos;t worth it, reply &ldquo;refund&rdquo;
-            and we put the money back on your card. No questions. No
-            conversation. Within 7 days.
+            If the report doesn&apos;t show you something valuable,
+            reply &ldquo;refund&rdquo; and we put the money back on
+            your card. No questions. No conversation. Within 7 days.
           </p>
           <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-zinc-500">
             Your data is locked behind a mutual NDA. We delete everything
