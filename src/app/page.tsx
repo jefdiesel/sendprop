@@ -1,9 +1,9 @@
 import { createCheckoutSession } from "./actions";
 
 export const metadata = {
-  title: "sendprop — your business, but faster",
+  title: "sendprop — new tools can run half your business",
   description:
-    "Three upgrades to how your business runs. Ranked by impact, with exact steps. 48 hours. $400.",
+    "We tell you which ones. Three automations specific to your operation, with exact steps. 48 hours. $400.",
 };
 
 export default function HomePage() {
@@ -23,15 +23,17 @@ export default function HomePage() {
 
       {/* hero */}
       <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-28 sm:pb-32">
-        <h1 className="max-w-[22ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
-          Your business,{" "}
-          <span className="text-orange-500">but faster.</span>
+        <h1 className="max-w-[24ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
+          New tools can run{" "}
+          <span className="text-orange-500">half your business.</span>
+          <br />
+          We&apos;ll tell you which ones.
         </h1>
 
         <p className="mt-10 max-w-xl text-xl leading-relaxed text-zinc-600">
-          We look at how your operation runs and show you three
-          things that could be faster, cheaper, or automatic.
-          Ranked by impact. Exact steps. 48 hours.
+          Share how your operation works today. We come back in
+          48 hours with three things you can automate, which
+          tools to use, and the steps to set them up.
         </p>
 
         <div className="mt-10 flex items-center gap-8">
