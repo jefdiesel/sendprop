@@ -12,46 +12,60 @@ function getOrigin(): string {
   );
 }
 
-export async function createCheckoutSession(formData: FormData) {
+export type CheckoutState = { error?: string } | undefined;
+
+export async function createCheckoutSession(
+  _prev: CheckoutState,
+  formData: FormData,
+): Promise<CheckoutState> {
   const customerEmail = String(formData.get("customerEmail") ?? "").trim();
   const customerName = String(formData.get("customerName") ?? "").trim();
   const businessName = String(formData.get("businessName") ?? "").trim();
-  if (!customerEmail || !customerName || !businessName) {
-    throw new Error("name, business name, and email are all required");
-  }
+
+  if (!customerName) return { error: "Name is required." };
+  if (!businessName) return { error: "Business name is required." };
+  if (!customerEmail) return { error: "Email is required." };
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail))
+    return { error: "That doesn't look like a valid email address." };
 
   const origin = getOrigin();
 
-  // Stripe holds the order state — we don't have our own DB. The customer
-  // info we collected here goes into the Stripe session metadata so we
-  // can read it back on the upload page.
-  const session = await stripe().checkout.sessions.create({
-    mode: "payment",
-    payment_method_types: ["card"],
-    customer_email: customerEmail,
-    line_items: [
-      {
-        price_data: {
-          currency: "usd",
-          unit_amount: AUDIT_PRICE_CENTS,
-          product_data: {
-            name: "AI Audit",
-            description:
-              "4-page written report on 3 ways AI could save your business real money. 48-hour delivery. Full refund if not worth $10k/year.",
+  let session;
+  try {
+    // Stripe holds the order state — we don't have our own DB. The customer
+    // info we collected here goes into the Stripe session metadata so we
+    // can read it back on the upload page.
+    session = await stripe().checkout.sessions.create({
+      mode: "payment",
+      payment_method_types: ["card"],
+      customer_email: customerEmail,
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            unit_amount: AUDIT_PRICE_CENTS,
+            product_data: {
+              name: "AI Audit",
+              description:
+                "4-page written report on 3 ways AI could save your business real money. 48-hour delivery. Full refund if not worth $10k/year.",
+            },
           },
+          quantity: 1,
         },
-        quantity: 1,
+      ],
+      success_url: `${origin}/upload/{CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/?canceled=1`,
+      metadata: {
+        customerName,
+        businessName,
       },
-    ],
-    success_url: `${origin}/upload/{CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/?canceled=1`,
-    metadata: {
-      customerName,
-      businessName,
-    },
-  });
+    });
+  } catch {
+    return { error: "Something went wrong connecting to payment. Try again in a moment." };
+  }
 
-  if (!session.url) throw new Error("Stripe didn't return a checkout URL");
+  if (!session.url)
+    return { error: "Something went wrong connecting to payment. Try again in a moment." };
   redirect(session.url);
 }
 

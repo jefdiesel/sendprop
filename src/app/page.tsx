@@ -1,4 +1,4 @@
-import { createCheckoutSession } from "./actions";
+import { CheckoutForm } from "./checkout-form";
 
 export const metadata = {
   title: "sendprop — what could AI actually do for your business?",
@@ -287,53 +287,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <form
-              action={createCheckoutSession}
-              className="rounded-lg border border-zinc-200 bg-[#fafaf7] p-6 sm:p-8"
-            >
-              <div className="space-y-5">
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-zinc-700">
-                    Name
-                  </label>
-                  <input
-                    name="customerName"
-                    required
-                    className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-zinc-700">
-                    Business
-                  </label>
-                  <input
-                    name="businessName"
-                    required
-                    className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-zinc-700">
-                    Email
-                  </label>
-                  <input
-                    name="customerEmail"
-                    type="email"
-                    required
-                    className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="mt-8 flex w-full items-center justify-center rounded-md bg-zinc-900 px-6 py-4 text-base font-semibold text-white transition hover:bg-zinc-800 active:translate-y-px"
-              >
-                Pay $400
-              </button>
-              <p className="mt-3 text-center text-sm text-zinc-400">
-                Card, Apple Pay, Google Pay.
-              </p>
-            </form>
+            <CheckoutForm />
           </div>
         </div>
       </section>
