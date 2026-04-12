@@ -29,9 +29,9 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-10 max-w-xl text-xl leading-relaxed text-zinc-600">
-          Share how your operation works today. We come back in
-          48 hours with three things you can automate, which
-          tools to use, and the steps to set them up.
+          $400 gets you a report with three automations specific
+          to your operation &mdash; which tools, what they cost,
+          and the steps to set them up. Delivered in 48 hours.
         </p>
 
         <div className="mt-10 flex items-center gap-8">
