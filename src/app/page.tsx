@@ -1,17 +1,16 @@
 import { createCheckoutSession } from "./actions";
 
 export const metadata = {
-  title: "Sendprop — AI Audit",
+  title: "Sendprop",
   description:
-    "A $400 written report identifying the three highest-ROI places to use AI in your business. Delivered in 48 hours. No meetings.",
+    "We look at your business and find the money you're leaving on the table. $400. 48 hours. No meetings.",
 };
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 antialiased">
-      {/* nav */}
+    <div className="min-h-screen bg-[#fafaf7] text-zinc-900 antialiased selection:bg-orange-200">
       <nav className="border-b border-zinc-200">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
           <a href="/" className="text-sm font-semibold tracking-tight">
             sendprop<span className="text-orange-500">.</span>
           </a>
@@ -19,264 +18,113 @@ export default function HomePage() {
             href="#start"
             className="rounded-md bg-orange-500 px-3.5 py-1.5 text-sm font-semibold text-zinc-950 transition hover:bg-orange-400"
           >
-            Start an audit
+            $400
           </a>
         </div>
       </nav>
 
-      {/* hero */}
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-[-0.025em] sm:text-7xl">
-            There are things AI can do for your business that would <span className="text-orange-600">blow your mind.</span>
+      <main className="mx-auto max-w-3xl px-6">
+        {/* the pitch — one block, no sections, no headers, just talk */}
+        <div className="pt-20 pb-16 sm:pt-32 sm:pb-24">
+          <h1 className="text-4xl font-semibold leading-tight tracking-[-0.02em] sm:text-6xl">
+            We look at your business and find the money you&apos;re{" "}
+            <span className="text-orange-600">leaving on the table.</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-zinc-600 sm:text-2xl">
-            We find the three that matter most. A written report, in your inbox
-            in 48 hours, with the dollar figures and the exact steps to make it
-            happen. Most consulting firms charge $5,000 for this. We charge $400.
-          </p>
 
-          <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
-            <a
-              href="#start"
-              className="inline-flex items-center gap-2 rounded-md bg-orange-500 px-6 py-3.5 text-base font-semibold text-zinc-950 transition hover:bg-orange-400"
+          <div className="mt-14 space-y-6 text-xl leading-relaxed text-zinc-700 sm:text-2xl">
+            <p>
+              Not &ldquo;AI consulting.&rdquo; Not a Zoom call where some guy
+              tells you to use ChatGPT. We actually dig into how your shop
+              runs &mdash; the emails, the invoices, the stuff you&apos;re
+              doing at 9pm that you shouldn&apos;t be doing &mdash; and come
+              back with a written report that says:{" "}
+              <span className="font-medium text-zinc-900">
+                here&apos;s where the money is, here&apos;s how to get it,
+                here&apos;s exactly what to do first.
+              </span>
+            </p>
+
+            <p>
+              Three things you can act on. Two you can set up yourself this
+              week. One we can build for you if you want it. Every one of them
+              with the math.
+            </p>
+
+            <p className="font-medium text-zinc-900">
+              <span className="font-mono tabular-nums text-orange-600">$400.</span>{" "}
+              Report in 48 hours. If we don&apos;t find at least $10k in annual
+              savings, you pay nothing.
+            </p>
+
+            <p className="text-zinc-500">
+              No calls. No meetings. No follow-up emails asking if you
+              &ldquo;had a chance to review.&rdquo; The report is the whole
+              product.
+            </p>
+          </div>
+        </div>
+
+        {/* form — right here, no dark section, no ceremony */}
+        <section
+          id="start"
+          className="border-t border-zinc-200 pt-16 pb-24 sm:pt-20 sm:pb-32"
+        >
+          <form action={createCheckoutSession} className="max-w-md">
+            <div className="space-y-5">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-600">
+                  Your name
+                </label>
+                <input
+                  name="customerName"
+                  required
+                  className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-600">
+                  Business
+                </label>
+                <input
+                  name="businessName"
+                  required
+                  className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-600">
+                  Email
+                </label>
+                <input
+                  name="customerEmail"
+                  type="email"
+                  required
+                  className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="group mt-8 flex w-full items-center justify-center gap-2 rounded-md bg-orange-500 px-6 py-4 text-base font-semibold text-zinc-950 shadow-sm transition hover:bg-orange-400 active:translate-y-px active:shadow-none"
             >
-              See what AI can do for you
+              Continue to Stripe
               <span className="text-zinc-900/40">·</span>
               <span className="font-mono tabular-nums">$400</span>
-            </a>
-            <span className="text-sm text-zinc-500">
-              If we can&apos;t find $10k in savings, you pay nothing.
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* what it is */}
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <div className="text-sm font-medium text-orange-600">
-              Why this exists
-            </div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              You&apos;ve built something real. Now imagine it running even better.
-            </h2>
-          </div>
-          <div className="space-y-6 text-lg leading-relaxed text-zinc-700 lg:col-span-8">
-            <p>
-              You didn&apos;t get this far by leaving money on the table. But
-              AI moves fast &mdash; faster than anyone running an actual business
-              can keep up with. Nobody expects you to be an expert in both your
-              industry and artificial intelligence. That&apos;s what we&apos;re
-              here for.
+            </button>
+            <p className="mt-4 text-center text-sm text-zinc-500">
+              Card, Apple Pay, Google Pay. Full refund within 7 days if you&apos;re
+              not happy. Mutual NDA before you upload anything.
             </p>
-            <p>
-              Show us a slice of your operations &mdash; the emails, the invoices,
-              the daily grind &mdash; and we&apos;ll come back with the three
-              biggest wins hiding in your workflow. Each one ranked by impact,
-              priced out, and ready to act on. Two you can set up yourself this
-              week with the prompts we give you. The third we can build for you,
-              fixed price, if you want it.
-            </p>
-            <p>
-              No calls. No pitch deck. No one trying to sell you a subscription.
-              Just a clear-eyed look at your business from people who do this
-              every day.
-            </p>
-          </div>
-        </div>
-      </section>
+          </form>
+        </section>
+      </main>
 
-      {/* how it works */}
-      <section className="border-b border-zinc-200 bg-zinc-50">
-        <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-          <div className="max-w-2xl">
-            <div className="text-sm font-medium text-orange-600">How it works</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              You spend ten minutes. We do the rest.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-8 sm:grid-cols-3">
-            <div>
-              <div className="font-mono text-sm tabular-nums text-zinc-400">
-                01
-              </div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                Pay
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-zinc-600">
-                Stripe checkout, $400 flat. You receive a private upload link
-                and a mutual NDA to sign with one click.
-              </p>
-            </div>
-            <div>
-              <div className="font-mono text-sm tabular-nums text-zinc-400">
-                02
-              </div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                Upload
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-zinc-600">
-                Drop in a small sample of your operations &mdash; emails,
-                paperwork photos, an export from your booking system, whatever
-                you can pull in ten minutes. The more we see, the better the
-                report.
-              </p>
-            </div>
-            <div>
-              <div className="font-mono text-sm tabular-nums text-zinc-400">
-                03
-              </div>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                Receive
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-zinc-600">
-                Within 48 hours, a 4-page PDF lands in your inbox. Three
-                ranked recommendations, real dollar figures, step-by-step
-                actions. Refund window opens for 7 days.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* terms */}
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <div className="text-sm font-medium text-orange-600">We put our money where our mouth is</div>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              If the audit doesn&apos;t pay for itself 25x over, you pay nothing.
-            </h2>
-          </div>
-          <div className="lg:col-span-8">
-            <dl className="divide-y divide-zinc-200 border-y border-zinc-200">
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3 sm:gap-6">
-                <dt className="text-sm font-medium text-zinc-500">Price</dt>
-                <dd className="text-base text-zinc-800 sm:col-span-2">
-                  $400 flat, one time. Paid up front via Stripe.
-                </dd>
-              </div>
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3 sm:gap-6">
-                <dt className="text-sm font-medium text-zinc-500">Delivery</dt>
-                <dd className="text-base text-zinc-800 sm:col-span-2">
-                  4-page PDF in your inbox within 48 hours of upload.
-                </dd>
-              </div>
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3 sm:gap-6">
-                <dt className="text-sm font-medium text-zinc-500">NDA</dt>
-                <dd className="text-base text-zinc-800 sm:col-span-2">
-                  Mutual, signed before any data is uploaded. Your data is
-                  deleted within 14 days of report delivery.
-                </dd>
-              </div>
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3 sm:gap-6">
-                <dt className="text-sm font-medium text-zinc-500">Refund</dt>
-                <dd className="text-base text-zinc-800 sm:col-span-2">
-                  7 days from delivery. If the report isn&apos;t worth $10,000
-                  a year to your business, reply &ldquo;refund&rdquo; and the
-                  payment is reversed. No questions, no friction.
-                </dd>
-              </div>
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3 sm:gap-6">
-                <dt className="text-sm font-medium text-zinc-500">No upsell</dt>
-                <dd className="text-base text-zinc-800 sm:col-span-2">
-                  No subscription, no follow-up sequence, no &ldquo;circling
-                  back.&rdquo; The audit is the product.
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="start" className="bg-zinc-950 text-zinc-50">
-        <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <h2 className="text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">
-                Let&apos;s see what we can find.
-              </h2>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-zinc-300">
-                Three fields, one checkout, then you upload the data.
-                We&apos;ll have your report back in 48 hours.
-              </p>
-              <p className="mt-10 text-sm text-zinc-500">
-                Questions? Email{" "}
-                <a
-                  href="mailto:jef@sendprop.com"
-                  className="text-zinc-200 underline decoration-zinc-700 underline-offset-4 hover:decoration-zinc-300"
-                >
-                  jef@sendprop.com
-                </a>
-                .
-              </p>
-            </div>
-
-            <div className="lg:col-span-7">
-              <form
-                action={createCheckoutSession}
-                className="rounded-lg border border-white/10 bg-white/[0.03] p-6 sm:p-8"
-              >
-                <div className="space-y-5">
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-zinc-300">
-                      Your name
-                    </label>
-                    <input
-                      name="customerName"
-                      placeholder="Mike Petrov"
-                      required
-                      className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-white/40 focus:bg-white/10 focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-zinc-300">
-                      Business
-                    </label>
-                    <input
-                      name="businessName"
-                      placeholder="Midway Insurance Agency"
-                      required
-                      className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-white/40 focus:bg-white/10 focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-zinc-300">
-                      Email
-                    </label>
-                    <input
-                      name="customerEmail"
-                      type="email"
-                      placeholder="mike@midway.example"
-                      required
-                      className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-white/40 focus:bg-white/10 focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="mt-8 flex w-full items-center justify-center gap-3 rounded-md bg-orange-500 px-6 py-4 text-base font-semibold text-zinc-950 transition hover:bg-orange-400"
-                >
-                  Continue to Stripe
-                  <span className="text-zinc-900/40">·</span>
-                  <span className="font-mono tabular-nums">$400</span>
-                </button>
-                <p className="mt-4 text-center text-xs text-zinc-500">
-                  Card, Apple Pay, Google Pay. Secure checkout via Stripe.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-8 text-sm text-zinc-500">
-          <span className="font-semibold text-zinc-900">sendprop</span>
+      <footer className="border-t border-zinc-200">
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-8 text-sm text-zinc-500">
+          <span>
+            <span className="font-semibold text-zinc-900">sendprop</span>
+            <span className="text-orange-500">.</span>
+          </span>
           <a
             href="mailto:jef@sendprop.com"
             className="hover:text-zinc-900"
