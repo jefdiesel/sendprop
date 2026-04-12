@@ -28,12 +28,12 @@ export default function HomePage() {
       <section className="border-b border-zinc-200">
         <div className="mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
           <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-[-0.025em] sm:text-7xl">
-            Every week you wait is another week <span className="text-orange-600">paying people to do work software should be doing.</span>
+            There are things AI can do for your business that would <span className="text-orange-600">blow your mind.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-zinc-600 sm:text-2xl">
-            We&apos;ll look at how your business actually runs and tell you
-            exactly where the money is going &mdash; and which parts a
-            computer can take over this month.
+            We find the three that matter most. A written report, in your inbox
+            in 48 hours, with the dollar figures and the exact steps to make it
+            happen. Most consulting firms charge $5,000 for this. We charge $400.
           </p>
 
           <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
@@ -41,12 +41,12 @@ export default function HomePage() {
               href="#start"
               className="inline-flex items-center gap-2 rounded-md bg-orange-500 px-6 py-3.5 text-base font-semibold text-zinc-950 transition hover:bg-orange-400"
             >
-              Get your audit
+              See what AI can do for you
               <span className="text-zinc-900/40">·</span>
               <span className="font-mono tabular-nums">$400</span>
             </a>
             <span className="text-sm text-zinc-500">
-              If we can&apos;t find $10k worth of savings, you get your money back.
+              If we can&apos;t find $10k in savings, you pay nothing.
             </span>
           </div>
         </div>
@@ -57,30 +57,32 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <div className="text-sm font-medium text-orange-600">
-              The problem
+              Why this exists
             </div>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              You already know AI matters. You just don&apos;t have 40 hours
-              to figure out where.
+              You&apos;ve built something real. Now imagine it running even better.
             </h2>
           </div>
           <div className="space-y-6 text-lg leading-relaxed text-zinc-700 lg:col-span-8">
             <p>
-              Somewhere in your business right now, someone is spending real
-              hours on something a machine could handle in seconds. You can
-              feel it. You just can&apos;t see it clearly enough to act on it.
+              You didn&apos;t get this far by leaving money on the table. But
+              AI moves fast &mdash; faster than anyone running an actual business
+              can keep up with. Nobody expects you to be an expert in both your
+              industry and artificial intelligence. That&apos;s what we&apos;re
+              here for.
             </p>
             <p>
-              That&apos;s what the audit is for. You show us a slice of your
-              operations &mdash; the emails, the invoices, the daily grind &mdash;
-              and we come back with the three biggest places you&apos;re
-              bleeding time and money. Each one ranked, priced out, and ready
-              to act on. Two you can do yourself this week. One we can build
-              for you.
+              Show us a slice of your operations &mdash; the emails, the invoices,
+              the daily grind &mdash; and we&apos;ll come back with the three
+              biggest wins hiding in your workflow. Each one ranked by impact,
+              priced out, and ready to act on. Two you can set up yourself this
+              week with the prompts we give you. The third we can build for you,
+              fixed price, if you want it.
             </p>
             <p>
               No calls. No pitch deck. No one trying to sell you a subscription.
-              Just a document that tells you the truth about your business.
+              Just a clear-eyed look at your business from people who do this
+              every day.
             </p>
           </div>
         </div>
@@ -144,9 +146,9 @@ export default function HomePage() {
       <section className="border-b border-zinc-200">
         <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <div className="text-sm font-medium text-orange-600">What you&apos;re not signing up for</div>
+            <div className="text-sm font-medium text-orange-600">We put our money where our mouth is</div>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-              No contracts. No surprises. No bullshit.
+              If the audit doesn&apos;t pay for itself 25x over, you pay nothing.
             </h2>
           </div>
           <div className="lg:col-span-8">
@@ -196,11 +198,11 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <h2 className="text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">
-                Find out what you&apos;re missing.
+                Let&apos;s see what we can find.
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-zinc-300">
                 Three fields, one checkout, then you upload the data.
-                Takes about ninety seconds. Report back in 48 hours.
+                We&apos;ll have your report back in 48 hours.
               </p>
               <p className="mt-10 text-sm text-zinc-500">
                 Questions? Email{" "}
