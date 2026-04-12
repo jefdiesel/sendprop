@@ -13,11 +13,11 @@ export default function HomePage() {
       <nav className="border-b border-zinc-200">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <a href="/" className="text-sm font-semibold tracking-tight">
-            sendprop
+            sendprop<span className="text-orange-500">.</span>
           </a>
           <a
             href="#start"
-            className="rounded-md bg-zinc-900 px-3.5 py-1.5 text-sm font-medium text-white transition hover:bg-zinc-700"
+            className="rounded-md bg-orange-500 px-3.5 py-1.5 text-sm font-semibold text-zinc-950 transition hover:bg-orange-400"
           >
             Start an audit
           </a>
@@ -28,7 +28,7 @@ export default function HomePage() {
       <section className="border-b border-zinc-200">
         <div className="mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
           <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-[-0.025em] sm:text-7xl">
-            A written AI audit of your business, delivered in 48 hours.
+            A written <span className="text-orange-600">AI audit</span> of your business, delivered in 48 hours.
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-zinc-600 sm:text-2xl">
             Send a sample of your operations. Get back a 4-page report on the
@@ -39,10 +39,10 @@ export default function HomePage() {
           <div className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
             <a
               href="#start"
-              className="inline-flex items-center gap-2 rounded-md bg-zinc-900 px-6 py-3.5 text-base font-medium text-white transition hover:bg-zinc-700"
+              className="inline-flex items-center gap-2 rounded-md bg-orange-500 px-6 py-3.5 text-base font-semibold text-zinc-950 transition hover:bg-orange-400"
             >
               Start an audit
-              <span className="text-zinc-400">·</span>
+              <span className="text-zinc-900/40">·</span>
               <span className="font-mono tabular-nums">$400</span>
             </a>
             <span className="text-sm text-zinc-500">
@@ -258,10 +258,10 @@ export default function HomePage() {
                 </div>
                 <button
                   type="submit"
-                  className="mt-8 flex w-full items-center justify-center gap-3 rounded-md bg-white px-6 py-4 text-base font-semibold text-zinc-900 transition hover:bg-zinc-100"
+                  className="mt-8 flex w-full items-center justify-center gap-3 rounded-md bg-orange-500 px-6 py-4 text-base font-semibold text-zinc-950 transition hover:bg-orange-400"
                 >
                   Continue to Stripe
-                  <span className="text-zinc-400">·</span>
+                  <span className="text-zinc-900/40">·</span>
                   <span className="font-mono tabular-nums">$400</span>
                 </button>
                 <p className="mt-4 text-center text-xs text-zinc-500">
