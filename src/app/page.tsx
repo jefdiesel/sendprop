@@ -26,8 +26,6 @@ export default function HomePage() {
         <h1 className="max-w-[24ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
           New tools can run{" "}
           <span className="text-orange-500">half your business.</span>
-          <br />
-          We&apos;ll tell you which ones.
         </h1>
 
         <p className="mt-10 max-w-xl text-xl leading-relaxed text-zinc-600">
