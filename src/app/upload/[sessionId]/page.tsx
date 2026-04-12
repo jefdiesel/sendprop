@@ -59,6 +59,7 @@ export default async function IntakePage({
         <a href="/" className="text-sm font-semibold tracking-tight">
           sendprop<span className="text-orange-500">.</span>
         </a>
+        <span className="text-sm text-zinc-500">Step 2 of 2</span>
       </nav>
 
       <main className="mx-auto max-w-3xl px-6 py-8 pb-20">
@@ -67,7 +68,7 @@ export default async function IntakePage({
             Tell us about {businessName}.
           </h1>
           <p className="mt-2 text-lg text-zinc-600">
-            Payment confirmed. Your report will land in{" "}
+            Your report will land in{" "}
             <strong>{customerEmail}</strong> within 48 hours of submitting this
             form.
           </p>
@@ -77,41 +78,6 @@ export default async function IntakePage({
           action={submitIntake.bind(null, sessionId)}
           className="space-y-10"
         >
-          {/* NDA */}
-          <section className="rounded-lg border border-zinc-200 bg-white p-6">
-            <h2 className="text-lg font-semibold">Mutual NDA</h2>
-            <div className="mt-3 rounded border border-zinc-200 bg-zinc-50 p-4 text-sm leading-relaxed text-zinc-600">
-              <p className="mb-2">
-                <strong>Mutual Non-Disclosure Agreement.</strong> The consultant
-                and {businessName} (&ldquo;the parties&rdquo;) agree that any
-                information shared in connection with this AI Audit engagement
-                is confidential. Neither party will share, resell, or use the
-                other&apos;s information for any purpose outside of this
-                engagement. The consultant will delete all submitted data within
-                14 days of report delivery. The consultant may reference the
-                engagement (anonymously) in case studies only with explicit
-                written consent.
-              </p>
-              <p>
-                Both parties retain ownership of their pre-existing intellectual
-                property. By checking the box below, you confirm you have
-                authority to enter into this agreement on behalf of{" "}
-                {businessName}.
-              </p>
-            </div>
-            <label className="mt-4 flex items-start gap-3 text-base cursor-pointer">
-              <input
-                type="checkbox"
-                name="nda"
-                required
-                className="mt-1 h-4 w-4 rounded border-zinc-300 accent-orange-500"
-              />
-              <span>
-                I accept the mutual NDA on behalf of {businessName}.
-              </span>
-            </label>
-          </section>
-
           {/* About the business */}
           <section className="space-y-5">
             <h2 className="text-lg font-semibold">About your business</h2>
@@ -185,6 +151,42 @@ export default async function IntakePage({
             </div>
           </section>
 
+          {/* Current tools */}
+          <section>
+            <h2 className="text-lg font-semibold">
+              Tools and services you currently pay for
+            </h2>
+            <p className="mt-1 text-base text-zinc-500">
+              Subscriptions, online services, platforms — anything you pay
+              monthly or yearly for. Helps us understand what&apos;s already in
+              place.
+            </p>
+            <textarea
+              name="currentTools"
+              rows={4}
+              placeholder={"QuickBooks, Mailchimp, Google Workspace, Indeed job postings, Jobber, Yelp ads..."}
+              className="mt-3 w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+            />
+          </section>
+
+          {/* Considered tools */}
+          <section>
+            <h2 className="text-lg font-semibold">
+              Tools you&apos;ve looked at but didn&apos;t go with
+            </h2>
+            <p className="mt-1 text-base text-zinc-500">
+              Software you considered or tried but dropped — too expensive, too
+              complicated, didn&apos;t fit. This tells us a lot about what
+              you actually need.
+            </p>
+            <textarea
+              name="consideredTools"
+              rows={3}
+              placeholder={"Salesforce (too expensive), HubSpot (too complex), a custom app someone quoted us $20k for..."}
+              className="mt-3 w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none"
+            />
+          </section>
+
           {/* Open-ended */}
           <section>
             <label className="block text-lg font-semibold">
@@ -231,11 +233,11 @@ export default async function IntakePage({
           {/* Call preference */}
           <section>
             <h2 className="text-lg font-semibold">
-              Want a walkthrough call?
+              Want a quick call before we start?
             </h2>
             <p className="mt-1 text-base text-zinc-500">
-              A 30-minute call to go through the report together. Completely
-              optional.
+              15 minutes to walk us through your operation. Helps us dig deeper
+              than the form alone. Optional.
             </p>
             <div className="mt-3 space-y-2">
               <label className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50">
@@ -246,16 +248,7 @@ export default async function IntakePage({
                   required
                   className="h-4 w-4 border-zinc-300 accent-orange-500"
                 />
-                Yes, schedule a call after the report is ready
-              </label>
-              <label className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50">
-                <input
-                  type="radio"
-                  name="callPreference"
-                  value="maybe"
-                  className="h-4 w-4 border-zinc-300 accent-orange-500"
-                />
-                Maybe — let me see the report first
+                Yes, schedule a call
               </label>
               <label className="flex items-center gap-3 rounded-md border border-zinc-200 bg-white px-4 py-3 text-base cursor-pointer transition hover:border-orange-300 has-[:checked]:border-orange-400 has-[:checked]:bg-orange-50">
                 <input
@@ -264,7 +257,7 @@ export default async function IntakePage({
                   value="no"
                   className="h-4 w-4 border-zinc-300 accent-orange-500"
                 />
-                No thanks, just send the report
+                No, the form is enough
               </label>
             </div>
           </section>

@@ -53,7 +53,7 @@ export async function createCheckoutSession(
           quantity: 1,
         },
       ],
-      success_url: `${origin}/upload/{CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/nda/{CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=1`,
       metadata: {
         customerName,
@@ -69,13 +69,30 @@ export async function createCheckoutSession(
   redirect(session.url);
 }
 
-export async function submitIntake(
+export async function acceptNda(
   sessionId: string,
   formData: FormData,
 ) {
   const ndaAccepted = formData.get("nda") === "on";
   if (!ndaAccepted) throw new Error("you must accept the NDA to continue");
 
+  const session = await stripe().checkout.sessions.retrieve(sessionId);
+  if (session.payment_status !== "paid") {
+    throw new Error("payment not yet confirmed");
+  }
+
+  // Store NDA acceptance in Stripe metadata
+  await stripe().checkout.sessions.update(sessionId, {
+    metadata: { ...session.metadata, ndaAccepted: "true" },
+  });
+
+  redirect(`/upload/${sessionId}`);
+}
+
+export async function submitIntake(
+  sessionId: string,
+  formData: FormData,
+) {
   // Pull the order state from Stripe (no DB).
   const session = await stripe().checkout.sessions.retrieve(sessionId);
   if (session.payment_status !== "paid") {
@@ -92,6 +109,8 @@ export async function submitIntake(
   const businessDescription = String(formData.get("businessDescription") ?? "").trim();
   const teamSize = String(formData.get("teamSize") ?? "").trim();
   const painPoints = formData.getAll("painPoints").map(String);
+  const currentTools = String(formData.get("currentTools") ?? "").trim();
+  const consideredTools = String(formData.get("consideredTools") ?? "").trim();
   const callPreference = String(formData.get("callPreference") ?? "").trim();
   const notes = String(formData.get("notes") ?? "").trim();
 
@@ -119,6 +138,8 @@ export async function submitIntake(
     businessDescription && `Business: ${businessDescription}`,
     teamSize && `Team size: ${teamSize}`,
     painPoints.length > 0 && `Pain points: ${painPoints.join(", ")}`,
+    currentTools && `Current tools/services: ${currentTools}`,
+    consideredTools && `Considered but dropped: ${consideredTools}`,
     callPreference && `Call preference: ${callPreference}`,
     notes && `\nAdditional notes:\n${notes}`,
   ]
