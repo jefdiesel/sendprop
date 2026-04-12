@@ -3,7 +3,7 @@ import { createCheckoutSession } from "./actions";
 export const metadata = {
   title: "sendprop — what could AI actually do for your business?",
   description:
-    "Not a guess. Not a pitch. A real answer — built around the way your business actually runs. $400 flat. Report in 48 hours.",
+    "Not a guess. Not a pitch. A real answer, built around the way your business runs. $400 flat. Report in 48 hours.",
 };
 
 export default function HomePage() {
@@ -29,8 +29,8 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-10 max-w-xl text-xl leading-relaxed text-zinc-600">
-          Not a guess. Not a pitch. A real answer — built around the way your
-          business actually runs.
+          Not a guess. Not a pitch. A real answer, built around the way your
+          business runs.
         </p>
 
         <div className="mt-10 flex items-center gap-8">
@@ -57,90 +57,75 @@ export default function HomePage() {
           </h2>
           <p className="mt-2 text-lg text-zinc-400">You can feel it.</p>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-600">
-            Every industry. Every size. The businesses that figure out where AI
-            fits — specifically, in their operation, with their team — are the
-            ones that pull ahead. Not because the technology is magic. Because it
-            frees up the thing that actually matters: your time, your attention,
-            your ability to grow.
+            Every industry, every size. The businesses figuring out where AI
+            fits — in their operation, with their team — are pulling ahead. Not
+            because the technology is magic. Because it frees up the thing that
+            matters: your time, your attention, your ability to grow.
           </p>
-        </div>
-      </section>
-
-      {/* what-if */}
-      <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <div className="space-y-6 text-lg leading-relaxed text-zinc-600 max-w-2xl">
-          <div className="border-l-2 border-orange-300 pl-6 italic">
-            What if every quote went out in minutes instead of days?
-          </div>
-          <div className="border-l-2 border-orange-300 pl-6 italic">
-            What if the knowledge in your head was available to your whole
-            team — instantly?
-          </div>
-          <div className="border-l-2 border-orange-300 pl-6 italic">
-            What if you could take on more work without adding headcount?
-          </div>
-          <div className="border-l-2 border-orange-300 pl-6 italic">
-            What if next year looked completely different — because this year,
-            you let it?
+          <div className="mt-10 space-y-6 max-w-2xl">
+            <div className="border-l-2 border-orange-300 pl-6 text-lg italic text-zinc-600">
+              What if every quote went out in minutes instead of days?
+            </div>
+            <div className="border-l-2 border-orange-300 pl-6 text-lg italic text-zinc-600">
+              What if the knowledge in your head was available to your whole
+              team, instantly?
+            </div>
+            <div className="border-l-2 border-orange-300 pl-6 text-lg italic text-zinc-600">
+              What if you took on more work without adding headcount?
+            </div>
           </div>
         </div>
       </section>
 
       {/* what you get */}
-      <section className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-          <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
-            What you get
-          </h2>
-          <p className="mt-2 text-lg text-zinc-400">Not a pitch. A map.</p>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-            A written report, specific to your business, delivered within 48
-            hours of our conversation.
-          </p>
+      <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+        <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
+          What you get
+        </h2>
+        <p className="mt-2 text-lg text-zinc-400">Not a pitch. A map.</p>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
+          A written report, specific to your business, delivered within 48
+          hours.
+        </p>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 sm:grid-cols-3">
-            <div className="bg-white p-8">
-              <div className="text-sm font-medium text-orange-500">
-                Opportunities
-              </div>
-              <p className="mt-3 font-semibold">
-                Every opportunity, sized in dollars
-              </p>
-              <p className="mt-2 text-sm text-zinc-500">
-                What changes, what it saves, what the first week looks like —
-                specific to your revenue, your team, your workflows.
-              </p>
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 sm:grid-cols-3">
+          <div className="bg-[#fafaf7] p-8">
+            <div className="text-sm font-medium text-orange-500">
+              Opportunities
             </div>
-            <div className="bg-white p-8">
-              <div className="text-sm font-medium text-orange-500">
-                Solutions
-              </div>
-              <p className="mt-3 font-semibold">
-                Designed around how you actually work
-              </p>
-              <p className="mt-2 text-sm text-zinc-500">
-                Custom recommendations — some free, some built — shaped to fit
-                the way your business already runs.
-              </p>
+            <p className="mt-3 font-semibold">
+              Every opportunity, sized in dollars
+            </p>
+            <p className="mt-2 text-sm text-zinc-500">
+              What changes, what it saves, what the first week looks like —
+              specific to your revenue, your team, your workflows.
+            </p>
+          </div>
+          <div className="bg-[#fafaf7] p-8">
+            <div className="text-sm font-medium text-orange-500">
+              Solutions
             </div>
-            <div className="bg-white p-8">
-              <div className="text-sm font-medium text-orange-500">
-                Clarity
-              </div>
-              <p className="mt-3 font-semibold">
-                What AI won&apos;t do
-              </p>
-              <p className="mt-2 text-sm text-zinc-500">
-                So you invest in the right things now and skip the expensive
-                wrong turns.
-              </p>
-            </div>
+            <p className="mt-3 font-semibold">
+              Shaped to how you already work
+            </p>
+            <p className="mt-2 text-sm text-zinc-500">
+              Custom recommendations — some free, some built — designed around
+              your operation as it runs today.
+            </p>
+          </div>
+          <div className="bg-[#fafaf7] p-8">
+            <div className="text-sm font-medium text-orange-500">Clarity</div>
+            <p className="mt-3 font-semibold">What AI won&apos;t do</p>
+            <p className="mt-2 text-sm text-zinc-500">
+              So you invest in the right things and skip the expensive wrong
+              turns.
+            </p>
           </div>
         </div>
       </section>
 
       {/* how it works */}
-      <section className="border-b border-zinc-200 bg-zinc-950 text-zinc-50">
+      <section className="border-y border-zinc-200 bg-zinc-950 text-zinc-50">
         <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
           <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
             How it works
@@ -153,15 +138,15 @@ export default function HomePage() {
             <div className="grid gap-4 sm:grid-cols-[100px_1fr] sm:items-baseline">
               <span className="text-sm font-medium text-orange-400">Call</span>
               <p className="text-zinc-300">
-                15 minutes. A quick conversation to see if it&apos;s a fit. We
-                sign a mutual NDA.
+                15 minutes. Quick conversation to see if it&apos;s a fit.
+                Mutual NDA signed.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-[100px_1fr] sm:items-baseline">
               <span className="text-sm font-medium text-orange-400">Talk</span>
               <p className="text-zinc-300">
-                20 minutes about your operations. How your business actually
-                runs. Where the time goes. What you&apos;d change if you could.
+                20 minutes about your operations. How your business runs. Where
+                the time goes. What you&apos;d change if you could.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-[100px_1fr] sm:items-baseline">
@@ -169,7 +154,7 @@ export default function HomePage() {
                 Analysis
               </span>
               <p className="text-zinc-300">
-                Two hours. Your operations examined for automation, revenue, and
+                2 hours. Your operations examined for automation, revenue, and
                 the opportunities hiding in plain sight.
               </p>
             </div>
@@ -179,7 +164,7 @@ export default function HomePage() {
               </span>
               <p className="text-zinc-300">
                 Delivered within 48 hours. Written report. Branded PDF. Yours to
-                keep, share with your team, and act on.
+                keep, share, and act on.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-[100px_1fr] sm:items-baseline">
@@ -188,7 +173,7 @@ export default function HomePage() {
               </span>
               <p className="text-zinc-300">
                 30-minute walkthrough. Every recommendation explained. Your
-                questions answered. Next steps — if you want them — laid out.
+                questions answered. Next steps laid out.
               </p>
             </div>
           </div>
@@ -202,15 +187,14 @@ export default function HomePage() {
         </h2>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
           You&apos;ve built something real. Now you&apos;re hearing
-          &ldquo;AI&rdquo; from every direction — and you want someone to sit
-          down with your operation and tell you what&apos;s actually worth
-          doing.
+          &ldquo;AI&rdquo; from every direction — and you want someone to look
+          at your operation and tell you what&apos;s worth doing.
         </p>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">
           Businesses running $500K–$5M in revenue — whether the work runs on
           job sites, kitchens, storefronts, client calls, or spreadsheets. If
-          your team spends time on tasks that feel like they should be faster by
-          now, there&apos;s probably a reason.
+          your team spends time on tasks that should be faster by now,
+          there&apos;s probably a reason.
         </p>
       </section>
 
@@ -226,10 +210,9 @@ export default function HomePage() {
                 We&apos;ve played with ChatGPT. How is this different?
               </dt>
               <dd className="mt-2 text-zinc-600 leading-relaxed">
-                That&apos;s actually the perfect starting point. You&apos;ve
-                seen what&apos;s possible — now the question is how to wire it
-                into the way your business actually operates. That&apos;s what
-                the audit maps out.
+                That&apos;s the perfect starting point. You&apos;ve seen
+                what&apos;s possible — the audit maps out how to wire it into
+                the way your business operates.
               </dd>
             </div>
             <div>
@@ -239,7 +222,7 @@ export default function HomePage() {
               <dd className="mt-2 text-zinc-600 leading-relaxed">
                 No. Sometimes the right answer is a free tool you set up
                 yourself. Sometimes it&apos;s something custom. The report tells
-                you which is which — and you decide what to do with it.
+                you which is which.
               </dd>
             </div>
             <div>
@@ -247,7 +230,7 @@ export default function HomePage() {
                 What happens after the audit?
               </dt>
               <dd className="mt-2 text-zinc-600 leading-relaxed">
-                The report is yours — every recommendation includes steps your
+                The report is yours. Every recommendation includes steps your
                 team can take on their own. If something needs building,
                 fixed-price proposals are available. No retainers. No open-ended
                 consulting.
@@ -257,14 +240,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* closing + guarantee */}
+      {/* closing cta */}
       <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <p className="mx-auto max-w-xl text-center text-2xl font-semibold tracking-tight sm:text-3xl">
-          The businesses that move now are the ones that lead next year.
-        </p>
-        <p className="mt-4 text-center text-lg text-zinc-400">
-          $400 flat. Under an hour of your time. A written report in 48 hours.
-        </p>
+        <div className="text-center">
+          <p className="text-lg text-zinc-500">
+            $400 flat. Under an hour of your time. A written report in 48 hours.
+          </p>
+          <p className="mt-2 text-sm text-zinc-400">
+            If the recommendations aren&apos;t collectively worth $10,000/year
+            to your business, full refund.
+          </p>
+        </div>
       </section>
 
       {/* form */}
@@ -287,8 +273,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
-                  If the recommendations aren&apos;t collectively worth at least
-                  $10,000/year to your business, full refund
+                  Full refund if it&apos;s not worth it
                 </div>
               </div>
 
