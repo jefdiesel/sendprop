@@ -24,7 +24,7 @@ export default function HomePage() {
       {/* hero */}
       <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-28 sm:pb-32">
         <h1 className="max-w-[24ch] text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[1.0] tracking-[-0.035em]">
-          New tools can run{" "}
+          AI can run{" "}
           <span className="text-orange-500">half your business.</span>
         </h1>
 
