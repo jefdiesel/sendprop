@@ -17,5 +17,5 @@ export function stripe(): Stripe {
   return _stripe;
 }
 
-export const AUDIT_PRICE_CENTS = 40000; // $400.00
-export const AUDIT_PRICE_DISPLAY = "$400";
+export const AUDIT_PRICE_CENTS = 100000; // $1,000.00
+export const AUDIT_PRICE_DISPLAY = "$1,000";
