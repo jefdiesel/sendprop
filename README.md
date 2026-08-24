@@ -53,7 +53,7 @@ Open http://localhost:3000.
 
 1. Cold email links to `https://sendprop.com`
 2. Prospect clicks → lands on `/`
-3. Fills in name + business + email → clicks "Pay $400 and start"
+3. Fills in name + business + email → clicks "Pay $1,000 and start"
 4. Server creates a Stripe Checkout session, redirects to Stripe
 5. Prospect pays on Stripe's page
 6. Stripe redirects to `/upload/{checkoutSessionId}`

@@ -26,7 +26,7 @@ export default async function DonePage({
           Your data is uploaded. I&apos;m on it.
         </p>
         <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-          Your 4-page report will land in <strong>{customerEmail}</strong>{" "}
+          Your 4&ndash;6 page report will land in <strong>{customerEmail}</strong>{" "}
           within <strong>48 hours</strong>.
         </p>
         <p className="mt-6 text-sm text-zinc-500">

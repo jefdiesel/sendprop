@@ -30,7 +30,9 @@ export default function TermsPage() {
               medium-sized businesses. The deliverable is a written report
               analyzing your operations and identifying specific opportunities
               where AI and automation can save time or generate revenue. Reports
-              are delivered as branded PDF documents.
+              are delivered as branded PDF documents. One of the recommendations
+              is also built as a working demonstration and shown running on a
+              sample of your own data at the review call.
             </p>
           </section>
 
@@ -39,9 +41,11 @@ export default function TermsPage() {
               Pricing and payment
             </h2>
             <p className="mt-2">
-              The AI audit is $400 USD, paid upfront via Stripe at the time of
-              booking. Payment is required before the engagement begins. All
-              prices are listed in US dollars. Stripe processes payments
+              The AI audit is $1,000 USD, paid upfront via Stripe at the time of
+              booking. Payment is required before the engagement begins. If you
+              commission a custom build from us within 30 days of receiving your
+              report, the $1,000 audit fee is credited against the build price.
+              All prices are listed in US dollars. Stripe processes payments
               securely — sendprop does not store credit card information.
             </p>
           </section>
@@ -52,7 +56,7 @@ export default function TermsPage() {
             </h2>
             <p className="mt-2">
               If the recommendations in your audit report are not collectively
-              worth at least $10,000 per year to your business, you are entitled
+              worth at least $25,000 per year to your business, you are entitled
               to a full refund. To request a refund, email{" "}
               <a
                 href="mailto:jef@sendprop.com"
@@ -128,7 +132,7 @@ export default function TermsPage() {
               The audit report contains recommendations and analysis, not
               guarantees of business outcomes. Sendprop is not liable for
               business decisions made based on the report. Our total liability
-              is limited to the amount paid for the service ($400 USD).
+              is limited to the amount paid for the service ($1,000 USD).
             </p>
           </section>
 

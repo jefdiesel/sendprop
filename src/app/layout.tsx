@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "sendprop — new tools can run half your business",
-  description: "We tell you which ones. Three automations specific to your operation, with exact steps. 48 hours. $400.",
+  description: "We tell you which ones — then build one of them and show it running on your own data. Three automations specific to your operation, with exact steps. 48 hours. $1,000.",
 };
 
 export default function RootLayout({

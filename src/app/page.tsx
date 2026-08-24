@@ -3,7 +3,7 @@ import { CheckoutForm } from "./checkout-form";
 export const metadata = {
   title: "sendprop — what could AI actually do for your business?",
   description:
-    "Not a guess. Not a pitch. A real answer, built around the way your business runs. $400 flat. Report in 48 hours.",
+    "Not a guess. Not a pitch. A real answer, built around the way your business runs — and one recommendation built and shown running on your own data. $1,000 flat. Report in 48 hours.",
 };
 
 export default function HomePage() {
@@ -30,7 +30,8 @@ export default function HomePage() {
 
         <p className="mt-6 max-w-xl text-xl leading-relaxed text-zinc-600 sm:text-2xl">
           Not a guess. Not a pitch. A real answer, built around the way your
-          business runs.
+          business runs. And we don&apos;t just tell you — we build one of the
+          recommendations and show it running on your own data.
         </p>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
@@ -44,7 +45,7 @@ export default function HomePage() {
             </span>
           </a>
           <span className="text-sm text-zinc-500">
-            $400 flat &middot; Report in 48 hours
+            $1,000 flat &middot; Report in 48 hours
           </span>
         </div>
       </section>
@@ -83,7 +84,8 @@ export default function HomePage() {
         </p>
         <p className="mt-3 max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl">
           A written report, specific to your business, delivered within 48
-          hours.
+          hours — plus one of the recommendations built as a working demo and
+          shown running on your own data.
         </p>
 
         <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-zinc-200 bg-zinc-200 grid-cols-1 sm:grid-cols-3">
@@ -172,8 +174,9 @@ export default function HomePage() {
                 Review
               </span>
               <p className="text-zinc-300">
-                30-minute walkthrough. Every recommendation explained. Your
-                questions answered. Next steps laid out.
+                30-minute walkthrough. Every recommendation explained. One of
+                them running live on your own data — so you see it working, not
+                a slide about it. Your questions answered. Next steps laid out.
               </p>
             </div>
           </div>
@@ -232,8 +235,8 @@ export default function HomePage() {
               <dd className="mt-1 text-base text-zinc-600 leading-relaxed sm:text-lg">
                 The report is yours. Every recommendation includes steps your
                 team can take on their own. If something needs building,
-                fixed-price proposals are available. No retainers. No open-ended
-                consulting.
+                fixed-price proposals are available — and the $1,000 comes off
+                the build price. No retainers. No open-ended consulting.
               </dd>
             </div>
           </dl>
@@ -249,10 +252,14 @@ export default function HomePage() {
                 Book the Audit.
               </h2>
               <p className="mt-3 text-lg text-zinc-500 sm:text-xl">
-                $400 flat. Under an hour of your time. Report in 48 hours.
+                $1,000 flat. Under an hour of your time. Report in 48 hours.
               </p>
 
               <div className="mt-6 space-y-3 text-base text-zinc-500">
+                <div className="flex items-center gap-3">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
+                  One recommendation built and running on your own data
+                </div>
                 <div className="flex items-center gap-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
                   NDA before you share anything
@@ -263,7 +270,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400" />
-                  Full refund if it&apos;s not worth $10,000/year
+                  Full refund if it&apos;s not worth $25,000/year
                 </div>
               </div>
 

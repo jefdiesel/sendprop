@@ -47,7 +47,7 @@ export async function createCheckoutSession(
             product_data: {
               name: "AI Audit",
               description:
-                "4-page written report on 3 ways AI could save your business real money. 48-hour delivery. Full refund if not worth $10k/year.",
+                "4-6 page written report on 3 ways AI could save your business real money, plus one of them built and shown running on your own data. 48-hour delivery. Full refund if not worth $25k/year.",
             },
           },
           quantity: 1,
