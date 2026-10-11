@@ -7,6 +7,10 @@
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "sendprop" }],
   "workers_dev": true,
+  "routes": [
+    { "pattern": "sendprop.com/*", "zone_name": "sendprop.com" },
+    { "pattern": "www.sendprop.com/*", "zone_name": "sendprop.com" }
+  ],
   "vars": { "PUBLIC_BASE_URL": "https://www.sendprop.com" },
   "observability": { "enabled": true }
 }
