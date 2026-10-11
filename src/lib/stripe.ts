@@ -5,6 +5,12 @@ import Stripe from "stripe";
 
 let _stripe: Stripe | null = null;
 
+// False when STRIPE_SECRET_KEY is absent (the offer is closed); checkout is
+// then disabled and order pages 404 instead of throwing.
+export function stripeConfigured(): boolean {
+  return Boolean(process.env.STRIPE_SECRET_KEY);
+}
+
 export function stripe(): Stripe {
   if (_stripe) return _stripe;
   const key = process.env.STRIPE_SECRET_KEY;

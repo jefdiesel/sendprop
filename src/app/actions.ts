@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { stripe, AUDIT_PRICE_CENTS } from "@/lib/stripe";
+import { stripe, stripeConfigured, AUDIT_PRICE_CENTS } from "@/lib/stripe";
 import { sendAuditOrderNotification } from "@/lib/notify";
 
 function getOrigin(): string {
@@ -27,6 +27,9 @@ export async function createCheckoutSession(
   if (!customerEmail) return { error: "Email is required." };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail))
     return { error: "That doesn't look like a valid email address." };
+
+  if (!stripeConfigured())
+    return { error: "Booking is closed right now. Please check back later." };
 
   const origin = getOrigin();
 
@@ -75,6 +78,7 @@ export async function acceptNda(
 ) {
   const ndaAccepted = formData.get("nda") === "on";
   if (!ndaAccepted) throw new Error("you must accept the NDA to continue");
+  if (!stripeConfigured()) redirect("/");
 
   const session = await stripe().checkout.sessions.retrieve(sessionId);
   if (session.payment_status !== "paid") {
@@ -93,6 +97,7 @@ export async function submitIntake(
   sessionId: string,
   formData: FormData,
 ) {
+  if (!stripeConfigured()) redirect("/");
   // Pull the order state from Stripe (no DB).
   const session = await stripe().checkout.sessions.retrieve(sessionId);
   if (session.payment_status !== "paid") {
